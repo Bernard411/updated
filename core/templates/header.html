@@ -28,8 +28,10 @@
         {% endif %}
         
       </nav>
+      {% if user.id %}
       <div id="menu-btn" class="fas fa-bars"></div>
       <!--O fas fa-bars cria o menu hamburger!-->
+      {% endif %}
     </header>
     <style>
       a{

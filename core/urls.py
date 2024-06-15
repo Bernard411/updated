@@ -10,4 +10,6 @@ urlpatterns = [
     path('', views.login_view, name='login'),
     path('registration', views.register, name='reg'),
     path('logout/', views.logout_view, name='logout'),
+    path('add-health-record/', views.add_health_record, name='add_health_record'),
+    path('delete-health-record/<int:record_id>/', views.delete_health_record, name='delete_health_record'),
 ]

@@ -66,8 +66,10 @@ from .models import HealthRecord, Patient
 
 def home(request):
     records = HealthRecord.objects.filter(patient=request.user)
+    recods_count = HealthRecord.objects.count()
     context = {
-        'records': records
+        'records': records,
+        'recods_count': recods_count
     }
     return render(request, 'index.html', context)
 
@@ -94,16 +96,44 @@ def add_health_record(request):
 from django.shortcuts import render
 from .models import HealthRecord
 
-def health_records(request):
-    records = HealthRecord.objects.filter(patient=request.user)
-    return render(request, 'recods.html', {'records': records})
 
 
 def geo_mapping(request):
     return render(request, 'geo.html')
 
+def health_records(request):
+    return render(request, 'geo.html')
+
 def medicine(request):
     return render(request, 'medicine.html')
+
+from django.shortcuts import render, redirect
+
+from .models import HealthRecord
+from .forms import HealthRecordForm
+
+
+def add_health_record(request):
+    if request.method == 'POST':
+        form = HealthRecordForm(request.POST)
+        if form.is_valid():
+            health_record = form.save(commit=False)
+            health_record.patient = request.user
+            health_record.save()
+            return redirect('home')
+    else:
+        form = HealthRecordForm()
+    return render(request, 'recods.html', {'form': form})
+
+from django.shortcuts import redirect, get_object_or_404
+from django.contrib.auth.decorators import login_required
+from .models import HealthRecord
+
+@login_required
+def delete_health_record(request, record_id):
+    record = get_object_or_404(HealthRecord, id=record_id, patient=request.user)
+    record.delete()
+    return redirect('home')
 
 
 # views.py

@@ -1,0 +1,251 @@
+{% load static %}
+{% include 'header.html' %}
+   <section class="home" id="home">
+      <div class="image">
+        <img src="{% static 'img/home-img.svg' %}" alt="" />
+      </div>
+      <div class="content">
+        <h3>stay safe, stay healthy</h3>
+        <p>
+          Prioritize your health and safety with our services
+        </p>
+        <a href="#" class="btn">
+          Contact us <span class="fas fa-chevron-right"></span>
+        </a>
+      </div>
+      
+    </section>
+    <section class="icons-container">
+      <div class="card_c">
+        <div class="item item--1">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M15 6V5C15 3.34315 13.6569 2 12 2C10.3431 2 9 3.34315 9 5V11.3477C9 11.6857 8.82505 11.9957 8.56141 12.2072C7.30465 13.2152 6.5 14.7636 6.5 16.5C6.5 19.5376 8.96243 22 12 22C15.0376 22 17.5 19.5376 17.5 16.5C17.5 14.7636 16.6954 13.2152 15.4386 12.2072C15.1749 11.9957 15 11.6857 15 11.3477V10" stroke="#1C274C" stroke-width="1.5" stroke-linecap="round"></path> <path d="M14.4998 16.5C14.4998 17.8807 13.3805 19 11.9998 19C10.619 19 9.49976 17.8807 9.49976 16.5C9.49976 15.1193 10.619 14 11.9998 14C13.3805 14 14.4998 15.1193 14.4998 16.5Z" stroke="#1C274C" stroke-width="1.5"></path> <path d="M12 14V12M12 5V8" stroke="#1C274C" stroke-width="1.5" stroke-linecap="round"></path> </g></svg>
+            <span class="quantity"><span id="temperature"></span>°C  </span>
+          <span class="text text--1"> temperature today</span>
+        </div>
+        <div class="item item--2">
+          <svg height="24" width="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M0 0L24 0 24 24 0 24z" fill="none"></path><path fill="rgba(252,161,71,1)" d="M16 16c1.657 0 3 1.343 3 3s-1.343 3-3 3-3-1.343-3-3 1.343-3 3-3zM6 12c2.21 0 4 1.79 4 4s-1.79 4-4 4-4-1.79-4-4 1.79-4 4-4zm10 6c-.552 0-1 .448-1 1s.448 1 1 1 1-.448 1-1-.448-1-1-1zM6 14c-1.105 0-2 .895-2 2s.895 2 2 2 2-.895 2-2-.895-2-2-2zm8.5-12C17.538 2 20 4.462 20 7.5S17.538 13 14.5 13 9 10.538 9 7.5 11.462 2 14.5 2zm0 2C12.567 4 11 5.567 11 7.5s1.567 3.5 3.5 3.5S18 9.433 18 7.5 16.433 4 14.5 4z"></path></svg>    <span class="quantity"> 70+ </span>
+          <span class="text text--2"> Illustrations </span>
+        </div>
+        <div class="item item--3">
+            <svg viewBox="0 0 1024 1024" class="icon" version="1.1" xmlns="http://www.w3.org/2000/svg" fill="#000000"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"><path d="M512 512m-480 0a480 480 0 1 0 960 0 480 480 0 1 0-960 0Z" fill="#E5F1FF"></path><path d="M512 179.2c-96 102.4-262.4 236.8-262.4 384s115.2 262.4 262.4 262.4 262.4-115.2 262.4-262.4-160-281.6-262.4-384z" fill="#9FC8FE"></path><path d="M512 684.8c-57.6 0-102.4-44.8-102.4-108.8 0-57.6 64-102.4 102.4-147.2 38.4 44.8 102.4 89.6 102.4 147.2 0 57.6-44.8 108.8-102.4 108.8z" fill="#72AEFD"></path></g></svg>
+            <span class="quantity"><span id="water-intake"></span> liters </span>
+          <span class="text text--3"> water needed today </span>
+        </div>
+        <div class="item item--4">
+            <svg viewBox="0 0 1024 1024" class="icon" version="1.1" xmlns="http://www.w3.org/2000/svg" fill="#000000"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"><path d="M512 512m-480 0a480 480 0 1 0 960 0 480 480 0 1 0-960 0Z" fill="#FEE8EB"></path><path d="M601.6 473.6c-57.6-64-57.6-140.8-57.6-249.6-179.2 70.4-134.4 262.4-140.8 326.4-44.8-38.4-57.6-128-57.6-128C294.4 448 268.8 512 268.8 563.2c0 128 108.8 236.8 243.2 236.8s243.2-102.4 243.2-236.8c0-76.8-57.6-115.2-57.6-217.6-83.2 25.6-96 89.6-96 128z" fill="#FF6B6A"></path><path d="M505.6 537.6c83.2 32 64 121.6 64 147.2 19.2-19.2 25.6-57.6 25.6-57.6 19.2 12.8 32 38.4 32 64 0 57.6-51.2 108.8-108.8 108.8s-108.8-51.2-108.8-108.8c6.4-57.6 96-102.4 96-153.6z" fill="#FFA9B1"></path></g></svg><span class="quantity"> 30+ </span>
+          <span class="text text--4"> Energy  </span>
+        </div>
+      </div>
+      <style>
+            .card_c {
+  width: 100%;
+  height: 254px;
+  color: white;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 5px;
+  overflow: visible;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.card_c .item {
+  border-radius: 10px;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+
+
+.item svg {
+  width: 40px;
+  height: 40px;
+  margin-bottom: 7px;
+}
+
+.item--1 {
+  background: #c7c7ff;
+}
+
+.item--2 {
+  background: #ffd8be;
+}
+
+.item--3 {
+  background: #a9ecbf;
+}
+
+.item--4 {
+  background: #f3bbe1;
+}
+
+.quantity {
+  font-size: 25px;
+  font-weight: 600;
+}
+
+.text {
+  font-size: 12px;
+  font-family: inherit;
+  font-weight: 600;
+}
+
+.text--1 {
+  color: rgba(149,149,255,1);
+}
+
+.text--2 {
+  color: rgba(252,161,71,1);
+}
+
+.text--3 {
+  color: rgba(66,193,110,1);
+}
+
+.text--4 {
+  color: rgba(220,91,183,1);
+}
+      </style>
+    </section>
+
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+          const city = 'Lilongwe';
+          const apiKey = '547afd6a9ad38bd23e255e28e1a2bf49'; // Replace with your OpenWeather API key
+  
+          fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${apiKey}`)
+              .then(response => response.json())
+              .then(data => {
+                  const temperature = data.main.temp;
+                  const humidity = data.main.humidity;
+                  const weather = data.weather[0].main;
+                  const waterIntake = calculateWaterIntake(temperature);
+  
+                  document.getElementById('temperature').innerText = temperature;
+                  document.getElementById('water-intake').innerText = waterIntake;
+                  document.getElementById('exercise-recommendation').innerText = getExerciseRecommendation(weather);
+                  document.getElementById('skin-care-tips').innerText = getSkinCareTips(humidity);
+  
+                  fetch(`https://api.openweathermap.org/data/2.5/uvi?lat=${data.coord.lat}&lon=${data.coord.lon}&appid=${apiKey}`)
+                      .then(response => response.json())
+                      .then(uvData => {
+                          document.getElementById('uv-index').innerText = uvData.value;
+                      });
+  
+                  fetch(`https://api.openweathermap.org/data/2.5/air_pollution?lat=${data.coord.lat}&lon=${data.coord.lon}&appid=${apiKey}`)
+                      .then(response => response.json())
+                      .then(airData => {
+                          document.getElementById('air-quality').innerText = airData.list[0].main.aqi;
+                      });
+  
+                  document.getElementById('result').classList.remove('hidden');
+              })
+              .catch(error => {
+                  console.error('Error fetching the weather data:', error);
+                  alert('allow use location');
+              });
+      });
+  
+      function calculateWaterIntake(temp) {
+          // Simple formula for calculating water intake based on temperature
+          // For example, base water intake is 2 liters + 0.1 liters for every degree above 20°C
+          const baseIntake = 2;
+          const additionalIntake = (temp > 20) ? (temp - 20) * 0.1 : 0;
+          return (baseIntake + additionalIntake).toFixed(2); // Round to 2 decimal places
+      }
+  
+      function getExerciseRecommendation(weather) {
+          // Suggest exercises based on weather conditions
+          if (weather === 'Clear') {
+              return 'It\'s a great day for outdoor activities like running or cycling.';
+          } else if (weather === 'Rain' || weather === 'Snow') {
+              return 'Consider indoor exercises like yoga or a home workout.';
+          } else {
+              return 'Any exercise you enjoy is good! Just be mindful of the weather.';
+          }
+      }
+  
+      function getSkinCareTips(humidity) {
+          // Provide skin care tips based on humidity levels
+          if (humidity < 30) {
+              return 'The air is dry, make sure to use a good moisturizer.';
+          } else if (humidity > 70) {
+              return 'It\'s quite humid, a light moisturizer should suffice.';
+          } else {
+              return 'Normal humidity levels. Maintain your regular skin care routine.';
+          }
+      }
+  </script>
+  
+    <section class="services" id="services">
+      <h1 class="heading">health <span>sync checkup</span></h1>
+      <div class="box-container">
+        <div class="box">
+          <i class="fas fa-notes-medical"></i>
+          <h3>health records</h3>
+          <p>
+            Access and manage your health records easily. 
+          </p>
+          <a href="{% url 'health_records' %}" class="btn">
+            check your records <span class="fas fa-chevron-right"></span>
+          </a>
+        </div>
+    
+        <div class="box">
+          <i class="fas fa-ambulance"></i>
+          <h3>Health Geo</h3>
+          <p>
+            Locate health services nearby quickly. 
+          </p>
+          <a href="{% url 'geo_mapping' %}" class="btn">
+            locate facility <span class="fas fa-chevron-right"></span>
+          </a>
+        </div>
+    
+        <div class="box">
+          <i class="fas fa-user-md"></i>
+          <h3>Expert AI doctors</h3>
+          <p>
+            Consult with AI-powered expert doctors. 
+          </p>
+          <a href="{% url 'ai_doctor' %}" class="btn">
+            get diognised <span class="fas fa-chevron-right"></span>
+          </a>
+        </div>
+    
+        <div class="box">
+          <i class="fas fa-pills"></i>
+          <h3>health tracker</h3>
+          <p>
+            Get recommendations for your medicines. 
+          </p>
+          <a href="{% url 'medicine' %}" class="btn">
+            track your health <span class="fas fa-chevron-right"></span>
+          </a>
+        </div>
+      </div>
+    </section>
+    
+
+
+   
+{% include 'float.html' %}
+    <section class="footer">
+      <div class="box-container">
+   
+
+       
+      </div>
+
+      <div class="credit" style="font-weight: bold;">
+       health sync 
+      </div>
+    </section>
+
+    {% include 'script.html' %}
+  </body>
+</html>

@@ -1,0 +1,461 @@
+{
+    "diseases": [
+      {
+        "name": "Common Cold",
+        "symptoms": ["runny nose", "sneezing", "cough", "sore throat"],
+        "medicines": ["Paracetamol", "Ibuprofen"],
+        "recommendations": ["Rest", "Drink fluids"],
+        "details": {
+          "description": "A viral infection of your upper respiratory tract.",
+          "causes": "Usually caused by a rhinovirus.",
+          "prevention": "Wash hands regularly, avoid close contact with infected people."
+        }
+      },
+      {
+        "name": "Influenza",
+        "symptoms": ["fever", "chills", "muscle aches", "fatigue"],
+        "medicines": ["Oseltamivir", "Acetaminophen"],
+        "recommendations": ["Rest", "Stay hydrated"],
+        "details": {
+          "description": "A viral infection that affects your respiratory system.",
+          "causes": "Caused by the influenza virus.",
+          "prevention": "Get vaccinated yearly, wash hands regularly."
+        }
+      },
+      {
+        "name": "Migraine",
+        "symptoms": ["severe headache", "nausea", "sensitivity to light"],
+        "medicines": ["Sumatriptan", "Naproxen"],
+        "recommendations": ["Dark room", "Cold compress"],
+        "details": {
+          "description": "A type of headache that can cause severe throbbing pain or a pulsing sensation.",
+          "causes": "Exact cause is unknown, but genetics and environmental factors play a role.",
+          "prevention": "Identify triggers and avoid them."
+        }
+      },
+      {
+        "name": "Allergic Rhinitis",
+        "symptoms": ["runny nose", "itchy eyes", "sneezing"],
+        "medicines": ["Antihistamines", "Nasal corticosteroids"],
+        "recommendations": ["Avoid allergens", "Use air purifier"],
+        "details": {
+          "description": "An allergic reaction that causes cold-like symptoms.",
+          "causes": "Triggered by allergens like pollen, dust mites, pet dander.",
+          "prevention": "Avoid allergens, keep windows closed during high pollen seasons."
+        }
+      },
+      {
+        "name": "Asthma",
+        "symptoms": ["shortness of breath", "wheezing", "chest tightness"],
+        "medicines": ["Inhaled corticosteroids", "Bronchodilators"],
+        "recommendations": ["Avoid triggers", "Quit smoking if applicable"],
+        "details": {
+          "description": "A chronic lung disease that inflames and narrows the airways.",
+          "causes": "Genetics and environmental factors.",
+          "prevention": "Avoid allergens and irritants, monitor breathing."
+        }
+      },
+      {
+        "name": "Pneumonia",
+        "symptoms": ["high fever", "chills", "cough with phlegm"],
+        "medicines": ["Antibiotics", "Antivirals if viral pneumonia"],
+        "recommendations": ["Complete rest", "Stay hydrated"],
+        "details": {
+          "description": "An infection that inflames the air sacs in one or both lungs, which may fill with fluid.",
+          "causes": "Bacterial, viral, or fungal infection.",
+          "prevention": "Vaccination, good hygiene, avoiding sick people."
+        }
+      },
+      {
+        "name": "Hypertension (High Blood Pressure)",
+        "symptoms": ["headaches", "shortness of breath", "chest pain"],
+        "medicines": ["Antihypertensives", "Diuretics"],
+        "recommendations": ["Maintain a healthy diet", "Exercise regularly"],
+        "details": {
+          "description": "Long-term force of the blood against your artery walls is high enough that it may eventually cause health problems.",
+          "causes": "Lifestyle factors, genetic predisposition, other health conditions.",
+          "prevention": "Healthy diet, regular exercise, stress management."
+        }
+      },
+      {
+        "name": "Type 2 Diabetes",
+        "symptoms": ["increased thirst", "frequent urination", "fatigue"],
+        "medicines": ["Metformin", "Insulin if needed"],
+        "recommendations": ["Healthy diet", "Regular blood sugar monitoring"],
+        "details": {
+          "description": "A chronic condition that affects the way your body metabolizes sugar (glucose), an important source of fuel for the body.",
+          "causes": "Insulin resistance, genetics, lifestyle factors.",
+          "prevention": "Maintain a healthy weight, exercise regularly, eat a balanced diet."
+        }
+      },
+      {
+        "name": "Gastroesophageal Reflux Disease (GERD)",
+        "symptoms": ["heartburn", "acid reflux", "regurgitation"],
+        "medicines": ["Proton pump inhibitors", "Antacids"],
+        "recommendations": ["Avoid large meals before bedtime", "Elevate the head of your bed"],
+        "details": {
+          "description": "A digestive disorder that affects the lower esophageal sphincter (LES), the ring of muscle between the esophagus and stomach.",
+          "causes": "Weakness in the LES, certain foods, lifestyle factors.",
+          "prevention": "Maintain a healthy weight, avoid trigger foods, eat smaller meals."
+        }
+      },
+      {
+        "name": "Osteoarthritis",
+        "symptoms": ["joint pain", "stiffness", "swelling"],
+        "medicines": ["Acetaminophen", "NSAIDs"],
+        "recommendations": ["Regular exercise", "Weight management"],
+        "details": {
+          "description": "A degenerative joint disease that affects joint cartilage and bones.",
+          "causes": "Aging, joint injury, obesity.",
+          "prevention": "Regular exercise, maintaining a healthy weight, avoiding joint injuries."
+        }
+      },
+      {
+        "name": "Anxiety Disorders",
+        "symptoms": ["excessive worry", "irritability", "restlessness"],
+        "medicines": ["SSRIs", "Benzodiazepines for short-term use"],
+        "recommendations": ["Therapy (CBT)", "Stress management techniques"],
+        "details": {
+          "description": "A group of mental disorders characterized by significant feelings of anxiety and fear.",
+          "causes": "Genetics, brain chemistry, life events.",
+          "prevention": "Early intervention, healthy coping mechanisms, stress management."
+        }
+      },
+      {
+        "name": "Urinary Tract Infection (UTI)",
+        "symptoms": ["burning sensation during urination", "frequent urge to urinate", "cloudy or bloody urine"],
+        "medicines": ["Antibiotics", "Pain relievers"],
+        "recommendations": ["Drink plenty of water", "Urinate often"],
+        "details": {
+          "description": "An infection in any part of the urinary system — kidneys, bladder, ureters, or urethra.",
+          "causes": "Bacteria entering the urinary tract through the urethra.",
+          "prevention": "Drink plenty of fluids, urinate after intercourse, practice good hygiene."
+        }
+      },
+      {
+        "name": "Hypothyroidism",
+        "symptoms": ["fatigue", "weight gain", "cold intolerance"],
+        "medicines": ["Levothyroxine (Synthroid)", "Liothyronine (Cytomel) if needed"],
+        "recommendations": ["Take medication as prescribed", "Maintain a healthy diet"],
+        "details": {
+          "description": "A condition in which your thyroid gland doesn't produce enough of certain crucial hormones.",
+          "causes": "Autoimmune disease, thyroid surgery, radiation therapy.",
+          "prevention": "Regular thyroid function tests, early detection."
+        }
+      },
+      {
+        "name": "Rheumatoid Arthritis",
+        "symptoms": ["joint pain", "swelling", "stiffness"],
+        "medicines": ["DMARDs", "NSAIDs"],
+        "recommendations": ["Regular exercise", "Joint protection techniques"],
+        "details": {
+          "description": "A chronic inflammatory disorder affecting many joints, including those in the hands and feet.",
+          "causes": "Autoimmune disease, genetics, environmental factors.",
+          "prevention": "Early diagnosis and appropriate treatment."
+        }
+      },
+      {
+        "name": "Chronic Obstructive Pulmonary Disease (COPD)",
+        "symptoms": ["shortness of breath", "chronic cough", "wheezing"],
+        "medicines": ["Bronchodilators", "Inhaled steroids"],
+        "recommendations": ["Quit smoking", "Avoid exposure to pollutants"],
+        "details": {
+          "description": "A group of lung diseases that block airflow and make breathing difficult.",
+          "causes": "Smoking, long-term exposure to lung irritants.",
+          "prevention": "Quit smoking, avoid exposure to pollutants, manage symptoms."
+        }
+      },
+    
+          {
+            "name": "Diarrhea",
+            "symptoms": ["loose, watery stools", "abdominal cramps", "nausea"],
+            "medicines": ["Loperamide", "Oral rehydration salts"],
+            "recommendations": ["Drink plenty of fluids", "Eat bland foods"],
+            "details": {
+              "description": "Frequent passage of loose, watery stools.",
+              "causes": "Viral, bacterial, or parasitic infection, food intolerance, medications.",
+              "prevention": "Practice good hygiene, drink clean water, avoid spoiled foods."
+            }
+          },
+          {
+            "name": "Acne",
+            "symptoms": ["pimples", "blackheads", "whiteheads"],
+            "medicines": ["Benzoyl peroxide", "Salicylic acid"],
+            "recommendations": ["Keep skin clean and dry", "Avoid squeezing pimples"],
+            "details": {
+              "description": "A skin condition that occurs when hair follicles become plugged with oil and dead skin cells.",
+              "causes": "Excess oil production, bacteria, hormonal changes, certain medications.",
+              "prevention": "Keep your face clean, avoid oily cosmetics, limit sun exposure."
+            }
+          },
+          {
+            "name": "Anemia",
+            "symptoms": ["fatigue", "weakness", "pale skin"],
+            "medicines": ["Iron supplements", "Vitamin B12 supplements"],
+            "recommendations": ["Eat iron-rich foods", "Take supplements as prescribed"],
+            "details": {
+              "description": "A condition in which you lack enough healthy red blood cells to carry adequate oxygen to your body's tissues.",
+              "causes": "Iron or vitamin deficiency, blood loss, chronic diseases.",
+              "prevention": "Eat a diet rich in iron and vitamins, treat underlying conditions."
+            }
+          },
+          {
+            "name": "Gastritis",
+            "symptoms": ["stomach pain", "nausea", "vomiting"],
+            "medicines": ["Antacids", "Proton pump inhibitors"],
+            "recommendations": ["Avoid spicy foods", "Eat smaller, more frequent meals"],
+            "details": {
+              "description": "Inflammation of the lining of the stomach.",
+              "causes": "H. pylori infection, excessive alcohol use, certain medications.",
+              "prevention": "Avoid triggers, eat a healthy diet, manage stress."
+            }
+          },
+          {
+            "name": "Osteoporosis",
+            "symptoms": ["back pain", "loss of height over time", "bone fractures"],
+            "medicines": ["Bisphosphonates", "Calcium and vitamin D supplements"],
+            "recommendations": ["Regular weight-bearing exercise", "Quit smoking"],
+            "details": {
+              "description": "A condition that weakens bones, making them fragile and more likely to break.",
+              "causes": "Aging, hormonal changes, low calcium intake, lack of exercise.",
+              "prevention": "Get enough calcium and vitamin D, exercise regularly, avoid smoking and excessive alcohol."
+            }
+          },
+          {
+            "name": "Gout",
+            "symptoms": ["intense joint pain", "swelling", "redness"],
+            "medicines": ["NSAIDs", "Colchicine"],
+            "recommendations": ["Drink plenty of fluids", "Limit alcohol and purine-rich foods"],
+            "details": {
+              "description": "A form of inflammatory arthritis that causes sudden, severe pain, swelling, and redness, usually in the big toe.",
+              "causes": "Excess uric acid in the blood, which can form needle-like crystals in a joint.",
+              "prevention": "Maintain a healthy weight, avoid purine-rich foods, limit alcohol, drink plenty of fluids."
+            }
+          },
+          {
+            "name": "Eczema",
+            "symptoms": ["dry, sensitive skin", "itching", "red, inflamed skin"],
+            "medicines": ["Topical corticosteroids", "Antihistamines"],
+            "recommendations": ["Moisturize regularly", "Avoid triggers like harsh soaps"],
+            "details": {
+              "description": "A condition that makes your skin red and itchy.",
+              "causes": "Genetics, dry skin, immune system dysfunction, environmental factors.",
+              "prevention": "Avoid triggers, moisturize regularly, use gentle cleansers."
+            }
+          },
+          {
+            "name": "Celiac Disease",
+            "symptoms": ["diarrhea", "bloating", "weight loss"],
+            "medicines": ["Gluten-free diet"],
+            "recommendations": ["Avoid gluten-containing foods", "Read food labels carefully"],
+            "details": {
+              "description": "An immune reaction to eating gluten, a protein found in wheat, barley, and rye.",
+              "causes": "Genetics, environmental factors.",
+              "prevention": "Strictly avoid gluten-containing foods, read food labels, educate yourself about safe foods."
+            }
+          },
+          {
+            "name": "Sleep Apnea",
+            "symptoms": ["loud snoring", "gasping for air during sleep", "morning headache"],
+            "medicines": ["Continuous positive airway pressure (CPAP) therapy", "Oral appliances"],
+            "recommendations": ["Lose weight if needed", "Avoid alcohol and sleeping pills"],
+            "details": {
+              "description": "A potentially serious sleep disorder in which breathing repeatedly stops and starts.",
+              "causes": "Obesity, narrowed airway, family history.",
+              "prevention": "Maintain a healthy weight, avoid alcohol and smoking, sleep on your side."
+            }
+          },
+          {
+            "name": "Psoriasis",
+            "symptoms": ["red patches of skin", "silvery scales", "itching"],
+            "medicines": ["Topical corticosteroids", "Vitamin D analogues"],
+            "recommendations": ["Moisturize", "Avoid triggers like stress"],
+            "details": {
+              "description": "A condition in which skin cells build up and form scales and itchy, dry patches.",
+              "causes": "Immune system dysfunction, genetics, environmental factors.",
+              "prevention": "Moisturize, avoid triggers like stress and skin injuries, manage your diet and lifestyle."
+            }
+          },
+          {
+            "name": "Hepatitis B",
+            "symptoms": ["abdominal pain", "dark urine", "jaundice"],
+            "medicines": ["Antiviral medications", "Interferon"],
+            "recommendations": ["Practice safe sex", "Get vaccinated"],
+            "details": {
+              "description": "A serious liver infection caused by the hepatitis B virus (HBV).",
+              "causes": "Contact with infectious body fluids, shared needles, mother-to-child transmission.",
+              "prevention": "Get vaccinated, practice safe sex, avoid sharing needles."
+            }
+          },
+          {
+            "name": "Hemorrhoids",
+            "symptoms": ["itching or irritation in your anal region", "pain or discomfort", "swelling around your anus"],
+            "medicines": ["Over-the-counter topical treatments", "Fiber supplements"],
+            "recommendations": ["Eat high-fiber foods", "Avoid straining during bowel movements"],
+            "details": {
+              "description": "Swollen and inflamed veins in your anus and lower rectum.",
+              "causes": "Straining during bowel movements, chronic constipation or diarrhea, sitting for long periods.",
+              "prevention": "Eat high-fiber foods, drink plenty of fluids, avoid straining during bowel movements."
+            }
+          },
+          {
+            "name": "Irritable Bowel Syndrome (IBS)",
+            "symptoms": ["abdominal pain", "bloating", "diarrhea or constipation"],
+            "medicines": ["Antispasmodics", "Fiber supplements"],
+            "recommendations": ["Eat smaller meals", "Manage stress"],
+            "details": {
+              "description": "A common disorder that affects the large intestine, causing abdominal cramping, bloating, and changes in bowel habits.",
+              "causes": "Exact cause is unknown, but likely involves abnormal muscle contractions in the intestines, nerves in the gut, and changes in bacteria.",
+              "prevention": "Eat a healthy diet, manage stress, avoid triggers like certain foods."
+            }
+          },
+          {
+            "name": "Tuberculosis (TB)",
+            "symptoms": ["coughing that lasts three or more weeks", "chest pain", "coughing up blood"],
+            "medicines": ["Antibiotics", "Antimicrobial therapy"],
+            "recommendations": ["Take medications as prescribed", "Cover your mouth when coughing"],
+            "details": {
+              "description": "A potentially serious infectious bacterial disease that mainly affects the lungs.",
+              "causes": "Mycobacterium tuberculosis bacteria.",
+              "prevention": "Vaccination, proper ventilation, early detection, and treatment."
+            }
+        },
+          
+                  {
+                    "name": "Pancreatitis",
+                    "symptoms": ["abdominal pain", "fever", "nausea"],
+                    "medicines": ["Pain relievers", "Antibiotics if infected"],
+                    "recommendations": ["Avoid alcohol", "Eat a low-fat diet"],
+                    "details": {
+                      "description": "Inflammation of the pancreas, which can be acute or chronic.",
+                      "causes": "Gallstones, alcohol consumption, certain medications, high levels of triglycerides.",
+                      "prevention": "Limit alcohol consumption, maintain a healthy weight, eat a low-fat diet."
+                    }
+                  },
+                  {
+                    "name": "Fibromyalgia",
+                    "symptoms": ["widespread muscle pain", "fatigue", "sleep disturbances"],
+                    "medicines": ["Antidepressants", "Pain relievers"],
+                    "recommendations": ["Exercise regularly", "Practice stress-reduction techniques"],
+                    "details": {
+                      "description": "A disorder characterized by widespread musculoskeletal pain accompanied by fatigue, sleep, memory, and mood issues.",
+                      "causes": "Exact cause is unknown, but may involve genetics, infections, or physical or emotional trauma.",
+                      "prevention": "Regular exercise, stress management, maintain a healthy lifestyle."
+                    }
+                  },
+                  {
+                    "name": "Gallstones",
+                    "symptoms": ["abdominal pain", "back pain between the shoulder blades", "nausea"],
+                    "medicines": ["Pain relievers", "Medications to dissolve stones"],
+                    "recommendations": ["Eat a healthy diet", "Lose weight gradually if needed"],
+                    "details": {
+                      "description": "Hard deposits that form in the gallbladder, a small organ under the liver.",
+                      "causes": "Too much cholesterol in the bile, too much bilirubin in the bile, or not emptying the gallbladder often enough.",
+                      "prevention": "Eat a diet rich in fruits, vegetables, and fiber, maintain a healthy weight, exercise regularly."
+                    }
+                  },
+                  {
+                    "name": "Parkinson's Disease",
+                    "symptoms": ["tremors", "rigidity", "slowed movement"],
+                    "medicines": ["Levodopa", "Dopamine agonists"],
+                    "recommendations": ["Exercise regularly", "Eat a balanced diet"],
+                    "details": {
+                      "description": "A progressive disorder of the nervous system that affects movement.",
+                      "causes": "Loss of nerve cells in the brain that produce dopamine.",
+                      "prevention": "Exact cause is unknown, so prevention focuses on managing symptoms and slowing progression."
+                    }
+                  },
+                  {
+                    "name": "Kidney Stones",
+                    "symptoms": ["severe pain in the side and back, below the ribs", "painful urination", "blood in the urine"],
+                    "medicines": ["Pain relievers", "Medications to relax the ureter muscles"],
+                    "recommendations": ["Drink plenty of fluids", "Reduce sodium intake"],
+                    "details": {
+                      "description": "Hard deposits made of minerals and salts that form inside your kidneys.",
+                      "causes": "Dehydration, certain diets, family history, obesity, digestive diseases, and other medical conditions.",
+                      "prevention": "Drink water throughout the day, decrease salt and animal protein intake, and avoid foods high in oxalates."
+                    }
+                  },
+                  {
+                    "name": "Endometriosis",
+                    "symptoms": ["painful periods", "pain with intercourse", "pain with bowel movements or urination"],
+                    "medicines": ["Hormonal therapies", "Pain relievers"],
+                    "recommendations": ["Exercise regularly", "Apply heat to the abdomen"],
+                    "details": {
+                      "description": "A disorder in which tissue similar to the tissue that forms the lining inside the uterus grows outside the uterus.",
+                      "causes": "Retrograde menstruation, embryonic cell transformation, surgical scar implantation.",
+                      "prevention": "Unfortunately, there are no known ways to prevent endometriosis, but regular exercise, avoiding large amounts of alcohol, and ensuring you have adequate vitamin D may help reduce your chances."
+                    }
+                  },
+                  {
+                    "name": "Multiple Sclerosis (MS)",
+                    "symptoms": ["fatigue", "numbness or weakness in one or more limbs", "vision problems"],
+                    "medicines": ["Disease-modifying therapies", "Steroids to reduce nerve inflammation"],
+                    "recommendations": ["Exercise regularly", "Eat a low-fat, high-fiber diet"],
+                    "details": {
+                      "description": "A disease in which the immune system eats away at the protective covering of nerves.",
+                      "causes": "The cause of multiple sclerosis is unknown. It’s considered an autoimmune disease in which the body’s immune system attacks its tissues.",
+                      "prevention": "Because the cause of multiple sclerosis isn’t known, it’s not possible to prevent it. However, because MS is more common in northern Europe, it might be that sunlight and vitamin D play a role in its development."
+                    }
+                  },
+                  {
+                    "name": "Systemic Lupus Erythematosus (SLE)",
+                    "symptoms": ["fatigue", "joint pain", "skin rashes"],
+                    "medicines": ["Corticosteroids", "Immunosuppressants"],
+                    "recommendations": ["Protect yourself from the sun", "Quit smoking"],
+                    "details": {
+                      "description": "An autoimmune disease that occurs when your body's immune system attacks your own tissues and organs.",
+                      "causes": "The cause of lupus is unknown, but it's thought to be a combination of genetics and environment.",
+                      "prevention": "There's no way to prevent lupus. However, by knowing the warning signs of a flare-up and developing a plan with your doctor, you can better manage your symptoms."
+                    }
+                  },
+                  {
+                    "name": "Ovarian Cancer",
+                    "symptoms": ["abdominal bloating or swelling", "difficulty eating or feeling full quickly", "urinary urgency or frequency"],
+                    "medicines": ["Chemotherapy", "Targeted therapy drugs"],
+                    "recommendations": ["Maintain a healthy weight", "Use oral contraceptives"],
+                    "details": {
+                      "description": "A type of cancer that begins in the ovaries.",
+                      "causes": "The exact cause of ovarian cancer is unknown, but certain risk factors increase the chance of developing it, including your age, family history, and your reproductive history.",
+                      "prevention": "Ovarian cancer cannot be prevented, but certain factors can help lower your risk, such as having a full-term pregnancy and using oral contraceptives."
+                    }
+                  },
+                  {
+                    "name": "Bladder Cancer",
+                    "symptoms": ["blood in the urine", "painful urination", "pelvic pain"],
+                    "medicines": ["Chemotherapy", "Immunotherapy"],
+                    "recommendations": ["Don't smoke", "Stay hydrated"],
+                    "details": {
+                      "description": "A type of cancer that begins in the cells of the bladder, the organ that stores urine.",
+                      "causes": "The exact cause of bladder cancer is unknown. But it’s believed that certain factors, such as smoking and exposure to certain chemicals, increase your risk of developing it.",
+                      "prevention": "Although there's no guaranteed way to prevent bladder cancer, you can take steps to help reduce your risk, such as not smoking and drinking plenty of fluids."
+                    }
+                  },
+                  {
+                    "name": "Prostate Cancer",
+                    "symptoms": ["urinary problems", "blood in semen", "discomfort in the pelvic area"],
+                    "medicines": ["Chemotherapy", "Hormone therapy"],
+                    "recommendations": ["Eat a healthy diet", "Maintain a healthy weight"],
+                    "details": {
+                      "description": "A type of cancer that occurs in the prostate, a small walnut-shaped gland in men that produces the seminal fluid that nourishes and transports sperm.",
+                      "causes": "It's not clear what causes prostate cancer.",
+                      "prevention": "There's no proven prostate cancer prevention strategy. But you can reduce your risk of prostate cancer if you choose a healthy diet full of fruits and vegetables, avoid high-fat foods, and maintain a healthy weight."
+                    }
+                  },
+                  {
+                    "name": "HIV/AIDS",
+                    "symptoms": ["fever", "swollen lymph nodes", "night sweats"],
+                    "medicines": ["Antiretroviral therapy (ART)"],
+                    "recommendations": ["Use condoms", "Avoid sharing needles"],
+                    "details": {
+                      "description": "A chronic, potentially life-threatening condition caused by the human immunodeficiency virus (HIV).",
+                      "causes": "HIV is caused by contact with infected blood, semen, or vaginal fluids.",
+                      "prevention": "There's no vaccine to prevent HIV infection. But you can protect yourself and others from infection by practicing safe sex, using condoms and male circumcision. You can also prevent HIV by avoiding shared needles or syringes."
+                    }
+                  }
+    ]
+}
+            
+                
+
+    

@@ -9,9 +9,7 @@
         <p>
           Prioritize your health and safety with our services
         </p>
-        <a href="#" class="btn">
-          Contact us <span class="fas fa-chevron-right"></span>
-        </a>
+        
       </div>
       
     </section>
@@ -180,7 +178,75 @@
           }
       }
   </script>
-  
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Health Records</title>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                background-color: #f8f9fa;
+                margin: 0;
+                padding: 20px;
+            }
+            .container {
+                width: 100%;
+                margin: auto;
+            }
+            .record-card {
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+                padding: 20px;
+                margin-bottom: 20px;
+                background-color: #fff;
+                border-radius: 8px;
+            }
+            .record-card h5 {
+                font-weight: bold;
+                margin-bottom: 10px;
+            }
+            .record-card p {
+                margin: 5px 0;
+            }
+            .record-card p span {
+                font-weight: bold;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <h1>my Health Records</h1>
+            {% for record in records %}
+                <div class="record-card">
+                    <h5>Record Date: {{ record.record_date }}</h5>
+                    <p><span>Description:</span> 
+                        {% if record.description|length > 20 %}
+                            {{ record.description|slice:":20" }}...
+                        {% else %}
+                            {{ record.description }}
+                        {% endif %}
+                    </p>
+                    <p><span>Blood Pressure:</span> {{ record.blood_pressure }}</p>
+                    <p><span>Heart Rate:</span> {{ record.heart_rate }}</p>
+                    <p><span>Temperature:</span> {{ record.temperature }}</p>
+                    <p><span>Weight:</span> {{ record.weight }}</p>
+                    <p><span>Height:</span> {{ record.height }}</p>
+                    <p><span>Notes:</span> {{ record.notes }}</p>
+                    <p><span>Blood Group:</span> {{ record.blood_group }}</p>
+                    <p><span>Diseases:</span> {{ record.diseases }}</p>
+                    <p><span>Surgery History:</span> {{ record.surgery_history }}</p>
+
+                    <a href="#" class="btn">
+                      delete <span class="fas fa-chevron-right"></span>
+                    </a>
+                </div>
+                
+            {% endfor %}
+        </div>
+    </body>
+    </html>
+    
     <section class="services" id="services">
       <h1 class="heading">health <span>sync checkup</span></h1>
       <div class="box-container">
@@ -191,7 +257,7 @@
             Access and manage your health records easily. 
           </p>
           <a href="{% url 'health_records' %}" class="btn">
-            check your records <span class="fas fa-chevron-right"></span>
+            add records <span class="fas fa-chevron-right"></span>
           </a>
         </div>
     
@@ -231,7 +297,7 @@
     </section>
     
 
-
+  
    
 {% include 'float.html' %}
     <section class="footer">

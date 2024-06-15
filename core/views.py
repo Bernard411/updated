@@ -91,10 +91,12 @@ def add_health_record(request):
 
 
 
+from django.shortcuts import render
+from .models import HealthRecord
+
 def health_records(request):
-    patient = request.user.patient_profile
-    health_records = HealthRecord.objects.filter(patient=patient)
-    return render(request, 'recods.html', {'health_records': health_records})
+    records = HealthRecord.objects.filter(patient=request.user)
+    return render(request, 'recods.html', {'records': records})
 
 
 def geo_mapping(request):

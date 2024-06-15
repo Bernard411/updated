@@ -1,4 +1,41 @@
 {% load static %}
 {% include 'header.html' %}
 
+<section class="home" id="home">
+ 
+    
+  </section>
+  
+<section class="book" id="book">
+  
+    <div class="row">
+      <div class="image">
+        <img src="{% static 'img/home-img.svg' %}" alt="" />
+      </div>
+
+      <form method="post">
+        <h3>register an account</h3>
+        {% csrf_token %}
+        {% if messages %}
+            {% for message in messages %}
+                <div style="color: red;">{{ message }}</div>
+            {% endfor %}
+        {% endif %}
+        <input type="text" placeholder="your username" name="username" id="username"  class="box" />
+        <input type="email" placeholder="your email" name="email" id="email"  class="box" />
+        
+        <input type="password" placeholder="your password" name="password1" id="password1" class="box" />
+        
+        <input type="password" placeholder="your password" name="password2" id="password2" class="box" />
+        
+        <input type="submit" value="register" class="btn" />
+        <br>
+        <p style="margin-top: 30px;"> you have an account? login <a href="{% url 'login' %}">here</a> </p>
+      </form>
+     
+    </div>
+  </section>
+
+
+
 <script src="{% static 'js/script.js' %}"></script>

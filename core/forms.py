@@ -2,27 +2,39 @@
 from django import forms
 from .models import HealthRecord
 
+
+
+
+from django import forms
+from .models import Patient, HealthRecord
+
+class PatientForm(forms.ModelForm):
+    class Meta:
+        model = Patient
+        fields = ['age', 'medical_history']
+
 class HealthRecordForm(forms.ModelForm):
     class Meta:
         model = HealthRecord
         fields = [
-            'record_date', 
-            'description', 
-            'blood_pressure', 
-            'heart_rate', 
-            'temperature', 
-            'weight', 
-            'height', 
-            'notes', 
-            'blood_group', 
-            'diseases', 
-            'surgery_history'
+            'record_date', 'description', 'blood_pressure', 'heart_rate',
+            'temperature', 'weight', 'height', 'notes', 'blood_group',
+            'diseases', 'surgery_history'
         ]
-        widgets = {
-            'record_date': forms.DateInput(attrs={'type': 'date'}),
-            'description': forms.Textarea(attrs={'rows': 4}),
-            'notes': forms.Textarea(attrs={'rows': 4}),
-        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 from django import forms

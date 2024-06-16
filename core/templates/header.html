@@ -18,13 +18,13 @@
     <header class="header">
       <a href="#" class="logo" style="font-weight: bold;"><i class="fas fa-heartbeat"></i> health sync </a>
       <nav class="navbar">
+        {% if user.id %}
         <a href="{% url 'home' %}">Home</a>
         <a href="#services">health records</a>
         <a href="#about">checkup</a>
-        {% if user.id %}
+      
         <a href="{% url 'logout' %}">logout</a>
-        {% else %}
-        <a href="{% url 'login' %}">account</a>
+      
         {% endif %}
         
       </nav>

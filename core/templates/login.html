@@ -44,6 +44,7 @@
             border: 1px solid #ccc;
             border-radius: 4px;
             box-sizing: border-box;
+            text-transform: none;
         }
         .login-form button {
             background-color: #007bff;
@@ -74,7 +75,7 @@
             <input type="password" name="password" placeholder="Password" required>
             <button type="submit">Login</button>
         </form>
-        <span>dont have an account?<a href="#" style="text-decoration: none;"> register here</a></span>
+        <span>dont have an account?<a href="{% url 'reg' %}" style="text-decoration: none;"> register here</a></span>
         <p style="font-weight: bold; font-size: x-small;">authanticate</p>
     </div>
 </body>

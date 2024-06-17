@@ -1,41 +1,84 @@
 {% load static %}
 {% include 'header.html' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap">
 
-<section class="home" id="home">
- 
-    
-  </section>
-  
-<section class="book" id="book">
-  
-    <div class="row">
-      <div class="image">
-        <img src="{% static 'img/home-img.svg' %}" alt="" />
-      </div>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>create account</title>
+    <!-- Add your CSS styling here -->
+    <style>
+        body {
+            font-family: Poppins;
+            background-color: #02070e;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .login-form {
+            background-color: #ffffff;
+            padding: 20px;
+            opacity: 80%;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            max-width: 300px;
+            width: 100%;
+            text-align: center;
+            .box-shadow {
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Horizontal offset, Vertical offset, Blur radius, Spread radius, Color */
+            }
 
-      <form method="post">
-        <h3>register an account</h3>
-        {% csrf_token %}
-        {% if messages %}
-            {% for message in messages %}
-                <div style="color: red;">{{ message }}</div>
-            {% endfor %}
-        {% endif %}
-        <input type="text" placeholder="your username" name="username" id="username"  class="box" />
-        <input type="email" placeholder="your email" name="email" id="email"  class="box" />
-        
-        <input type="password" placeholder="your password" name="password1" id="password1" class="box" />
-        
-        <input type="password" placeholder="your password" name="password2" id="password2" class="box" />
-        
-        <input type="submit" value="register" class="btn" />
-        <br>
-        <p style="margin-top: 30px;"> you have an account? login <a href="{% url 'login' %}">here</a> </p>
-      </form>
-     
+        }
+        .login-form input[type="text"],
+        .login-form input[type="password"],
+        .login-form input[type="email"],
+        .login-form button {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            text-transform: none;
+        }
+        .login-form button {
+            background-color: #007bff;
+            color: #fff;
+            cursor: pointer;
+        }
+        .login-form button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+  <div class="login-form" style="opacity: 80%;">
+    <img src="https://media0.giphy.com/media/9LWavPUfVpQaa9RCHB/giphy.gif?cid=6c09b952841rk16ala2emuslfhhv7i0n63bg8xyd5y3k4ug0&ep=v1_internal_gif_by_id&rid=giphy.gif&ct=g" style="width: 60px;" alt="">
+     <cemter><span style="font-size: larger;">Health sync malawi</span></cemter>
+      
+       <h2 style="font-weight: bold;">personised health app</h2>
+       <form method="post">
+           {% csrf_token %}
+           {% if messages %}
+               {% for message in messages %}
+                   <div style="color: red;">{{ message }}</div>
+               {% endfor %}
+           {% endif %}
+            <input type="text" name="username" placeholder="Username" required>
+            <input type="email" name="email" placeholder="email" required>
+            <input type="password" name="password1" placeholder="enter password" required>
+            <input type="password" name="password2" placeholder="enter password" required>
+
+            <button type="submit">Registration</button>
+        </form>
+<span>already have an account?<a href="{% url 'login' %}" style="text-decoration: none;"> login here</a></span>
+        <p style="font-weight: bold; font-size: x-small;">register</p>
     </div>
-  </section>
-
-
-
-<script src="{% static 'js/script.js' %}"></script>
+</body>
+</html>

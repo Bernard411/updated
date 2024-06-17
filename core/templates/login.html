@@ -1,38 +1,76 @@
 {% load static %}
-{% include 'header.html' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap">
 
-<section class="home" id="home">
- 
-    
-  </section>
-  
-<section class="book" id="book">
-  
-    <div class="row">
-      <div class="image">
-        <img src="{% static 'img/home-img.svg' %}" alt="" />
-      </div>
+    <title>Login</title>
+    <!-- Add your CSS styling here -->
+    <style>
+        body {
+            font-family: Poppins;
+            background-color: #02070e;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .login-form {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            max-width: 300px;
+            width: 100%;
+            text-align: center;
+            .box-shadow {
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Horizontal offset, Vertical offset, Blur radius, Spread radius, Color */
+            }
 
-      <form method="post">
-        <h3>login to account</h3>
-        {% csrf_token %}
-        {% if messages %}
-            {% for message in messages %}
-                <div style="color: red;">{{ message }}</div>
-            {% endfor %}
-        {% endif %}
-        <input type="text" placeholder="your username" name="username" id="username"  class="box" />
-        
-        <input type="password" placeholder="your password" name="password" id="password" class="box" />
-        
-        <input type="submit" value="login" class="btn" />
+        }
+        .login-form input[type="text"],
+        .login-form input[type="password"],
+        .login-form button {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        .login-form button {
+            background-color: #007bff;
+            color: #fff;
+            cursor: pointer;
+        }
+        .login-form button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-form" style="opacity: 80%;">
+        <img src="https://www.icegif.com/wp-content/uploads/icegif-656.gif" alt="" style="height: 50px;">
         <br>
-        <p style="margin-top: 30px;"> dont have an account? create <a href="{% url 'reg' %}">here</a> </p>
-      </form>
-     
+        <h2 style="font-weight: bold;">umodzi quiz application</h2>
+        <form method="post">
+            {% csrf_token %}
+            {% if messages %}
+                {% for message in messages %}
+                    <div style="color: red;">{{ message }}</div>
+                {% endfor %}
+            {% endif %}
+            <input type="text" name="username" placeholder="Username" required>
+            <input type="password" name="password" placeholder="Password" required>
+            <button type="submit">Login</button>
+        </form>
+        <span>dont have an account?<a href="{% url 'register' %}" style="text-decoration: none;"> register here</a></span>
+        <p style="font-weight: bold; font-size: x-small;">authanticate</p>
     </div>
-  </section>
-
-
-
-<script src="{% static 'js/script.js' %}"></script>
+</body>
+</html>

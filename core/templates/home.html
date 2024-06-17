@@ -1,0 +1,238 @@
+{% load static %}
+{% include 'header.html' %}
+
+    <section class="home" id="home">
+      <div class="image">
+        <img src="{% static 'img/home-img.svg' %}" alt="" />
+      </div>
+      <div class="content">
+        <h3>stay safe, stay healthy</h3>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt
+          tempore perspiciatis hic, nihil voluptatem quia!
+        </p>
+        <a href="#" class="btn">
+          Contact us <span class="fas fa-chevron-right"></span>
+        </a>
+      </div>
+    </section>
+    <section class="icons-container">
+      <div class="icons">
+        <i class="fas fa-user-md"></i>
+        <h3><span id="temperature"></span>°C  </span></h3>
+        <p>Doctors at work</p>
+      </div>
+
+      <div class="icons">
+        <i class="fas fa-users"></i>
+        <h3><span id="water-intake"></span> liters </span></h3>
+        <p>Satisfied patients</p>
+      </div>
+
+      <div class="icons">
+        <i class="fas fa-procedures"></i>
+        <h3>500+</h3>
+        <p>Bed facility</p>
+      </div>
+
+      <div class="icons">
+        <i class="fas fa-hospital"></i>
+        <h3>80+</h3>
+        <p>Available hospitals</p>
+      </div>
+    </section>
+
+     
+    <section class="services" id="services">
+        <h1 class="heading" style="text-transform: lowercase;">healthsync checkup</h1>
+        <div class="box-container">
+          <div class="box">
+            <i class="fas fa-notes-medical"></i>
+            <h3>health records</h3>
+            <p>
+              Access and manage your health records easily. 
+            </p>
+            <a href="{% url 'add_health_record' %}" class="btn">
+              add records <span class="fas fa-chevron-right"></span>
+            </a>
+          </div>
+      
+          <div class="box">
+            <i class="fas fa-ambulance"></i>
+            <h3>Health Geo</h3>
+            <p>
+              Locate health services nearby quickly. 
+            </p>
+            <a href="{% url 'geo_mapping' %}" class="btn">
+              locate facility <span class="fas fa-chevron-right"></span>
+            </a>
+          </div>
+      
+          <div class="box">
+            <i class="fas fa-user-md"></i>
+            <h3>Expert AI doctors</h3>
+            <p>
+              Consult with AI-powered expert doctors. 
+            </p>
+            <a href="{% url 'ai_doctor' %}" class="btn">
+              get diognised <span class="fas fa-chevron-right"></span>
+            </a>
+          </div>
+      
+          <div class="box">
+            <i class="fas fa-pills"></i>
+            <h3>health tracker</h3>
+            <p>
+              Get recommendations for your medicines. 
+            </p>
+            <a href="{% url 'medicine' %}" class="btn">
+              track your health <span class="fas fa-chevron-right"></span>
+            </a>
+          </div>
+        </div>
+      </section>
+      
+
+    <section class="about" id="about">
+      <h1 class="heading">About <span>us</span></h1>
+      <div class="row">
+        <div class="image">
+          <img src="img/book-img.svg" alt="" />
+        </div>
+        <div class="content">
+          <h3>we take care of your healthy life</h3>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere
+            quisquam repellat odit dolorem dolor possimus ducimus consequatur
+            voluptates. Velit eum quam quas sint voluptatum aliquid vitae vero
+            obcaecati. Delectus, harum!
+          </p>
+          <p>
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nisi saepe
+            nihil voluptate cupiditate provident cumque iste labore numquam
+            aspernatur at?
+          </p>
+          <a href="#" class="btn">
+            Learn more <span class="fas fa-chevron-right"></span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+
+
+   
+    <section class="blogs" id="blogs">
+      
+      <div class="box-container">
+        {% for record in records %}
+        <div class="box">
+          
+          <div class="content">
+            <div class="icon">
+              <a href="#"> <i class="fas fa-calendar"></i> {{ record.record_date }}</a>
+              <a href="#"> <i class="fas fa-user"></i>{{record.blood_group}}</a>
+            </div>
+            <h3>health record</h3>
+            <p><span>Blood Pressure:</span> {{ record.blood_pressure }}</p>
+                    <p><span>Heart Rate:</span> {{ record.heart_rate }}</p>
+                    <p><span>Temperature:</span> {{ record.temperature }}</p>
+                    <p><span>Weight:</span> {{ record.weight }}</p>
+                    <p><span>Height:</span> {{ record.height }}</p>
+                    
+                    <p><span>Blood Group:</span> {{ record.blood_group }}</p>
+                    <p><span>Diseases:</span> {{ record.diseases }}</p>
+                    <p><span>Surgery History:</span> {{ record.surgery_history }}</p>
+                    <a href="{% url 'delete_health_record' record.id %}" class="btn">
+                        delete <span class="fas fa-chevron-right"></span>
+                      </a>
+          </div>
+        </div>
+        {% endfor %}
+
+        
+
+        
+      </div>
+    </section>
+
+    <section class="footer">
+      <div class="box-container">
+       
+      </div>
+
+      <div class="credit">
+       
+      </div>
+    </section>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const city = 'Lilongwe';
+            const apiKey = '547afd6a9ad38bd23e255e28e1a2bf49'; // Replace with your OpenWeather API key
+    
+            fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${apiKey}`)
+                .then(response => response.json())
+                .then(data => {
+                    const temperature = data.main.temp;
+                    const humidity = data.main.humidity;
+                    const weather = data.weather[0].main;
+                    const waterIntake = calculateWaterIntake(temperature);
+    
+                    document.getElementById('temperature').innerText = temperature;
+                    document.getElementById('water-intake').innerText = waterIntake;
+                    document.getElementById('exercise-recommendation').innerText = getExerciseRecommendation(weather);
+                    document.getElementById('skin-care-tips').innerText = getSkinCareTips(humidity);
+    
+                    fetch(`https://api.openweathermap.org/data/2.5/uvi?lat=${data.coord.lat}&lon=${data.coord.lon}&appid=${apiKey}`)
+                        .then(response => response.json())
+                        .then(uvData => {
+                            document.getElementById('uv-index').innerText = uvData.value;
+                        });
+    
+                    fetch(`https://api.openweathermap.org/data/2.5/air_pollution?lat=${data.coord.lat}&lon=${data.coord.lon}&appid=${apiKey}`)
+                        .then(response => response.json())
+                        .then(airData => {
+                            document.getElementById('air-quality').innerText = airData.list[0].main.aqi;
+                        });
+    
+                    document.getElementById('result').classList.remove('hidden');
+                })
+                .catch(error => {
+                    console.error('Error fetching the weather data:', error);
+                    alert('allow use location');
+                });
+        });
+    
+        function calculateWaterIntake(temp) {
+            // Simple formula for calculating water intake based on temperature
+            // For example, base water intake is 2 liters + 0.1 liters for every degree above 20°C
+            const baseIntake = 2;
+            const additionalIntake = (temp > 20) ? (temp - 20) * 0.1 : 0;
+            return (baseIntake + additionalIntake).toFixed(2); // Round to 2 decimal places
+        }
+    
+        function getExerciseRecommendation(weather) {
+            // Suggest exercises based on weather conditions
+            if (weather === 'Clear') {
+                return 'It\'s a great day for outdoor activities like running or cycling.';
+            } else if (weather === 'Rain' || weather === 'Snow') {
+                return 'Consider indoor exercises like yoga or a home workout.';
+            } else {
+                return 'Any exercise you enjoy is good! Just be mindful of the weather.';
+            }
+        }
+    
+        function getSkinCareTips(humidity) {
+            // Provide skin care tips based on humidity levels
+            if (humidity < 30) {
+                return 'The air is dry, make sure to use a good moisturizer.';
+            } else if (humidity > 70) {
+                return 'It\'s quite humid, a light moisturizer should suffice.';
+            } else {
+                return 'Normal humidity levels. Maintain your regular skin care routine.';
+            }
+        }
+    </script>
+    <script src="{% static 'js/script.js' %}"></script>
+  </body>
+</html>

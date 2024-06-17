@@ -71,7 +71,7 @@ def home(request):
         'records': records,
         'recods_count': recods_count
     }
-    return render(request, 'index.html', context)
+    return render(request, 'home.html', context)
 
 def ai_doctor(request):
     return render(request, 'doc.html')

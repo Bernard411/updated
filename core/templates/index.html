@@ -1,19 +1,27 @@
 {% load static %}
 {% include 'header.html' %}
    <section class="home" id="home">
-      <div class="image">
-        <img src="{% static 'img/home-img.svg' %}" alt="" />
-      </div>
-      <div class="content">
-        <h3>stay safe, stay healthy</h3>
-        <p>
-          Prioritize your health and safety with our services
-        </p>
-        
-      </div>
+ <span style="font-weight: bold; font-size: large">wellcome user!</span>
+     <div class="username-container">
+
+        <div class="profile-container">
+            <div class="profile-img">
+                <img src="https://e7.pngegg.com/pngimages/550/997/png-clipart-user-icon-foreigners-avatar-child-face.png" alt="Profile Picture" >
+            </div>
+            <div class="profile-description">
+                <p class="user-title" style="font-size: large;">{{user.username}}</p>
+                <p class="username">@{{user.id}}</p>
+            </div>
+        </div>
+        <div class="menu-bar">
+            <i class="bi bi-three-dots"></i>
+        </div>
+    </div>
       
     </section>
-    <section class="icons-container">
+    <section class="icons-conntainer">
+      <span style="font-weight: bold; font-size: large; margin-bottom: 20px">Today</span>
+      <hr>
       <div class="card_c">
         <div class="item item--1">
             <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M15 6V5C15 3.34315 13.6569 2 12 2C10.3431 2 9 3.34315 9 5V11.3477C9 11.6857 8.82505 11.9957 8.56141 12.2072C7.30465 13.2152 6.5 14.7636 6.5 16.5C6.5 19.5376 8.96243 22 12 22C15.0376 22 17.5 19.5376 17.5 16.5C17.5 14.7636 16.6954 13.2152 15.4386 12.2072C15.1749 11.9957 15 11.6857 15 11.3477V10" stroke="#1C274C" stroke-width="1.5" stroke-linecap="round"></path> <path d="M14.4998 16.5C14.4998 17.8807 13.3805 19 11.9998 19C10.619 19 9.49976 17.8807 9.49976 16.5C9.49976 15.1193 10.619 14 11.9998 14C13.3805 14 14.4998 15.1193 14.4998 16.5Z" stroke="#1C274C" stroke-width="1.5"></path> <path d="M12 14V12M12 5V8" stroke="#1C274C" stroke-width="1.5" stroke-linecap="round"></path> </g></svg>
@@ -35,6 +43,67 @@
         </div>
       </div>
       <style>
+        @import url('https://fonts.googleapis.com/css2?family=Lexend+Deca&family=Poppins:wght@400;600&display=swap');
+
+
+.username-container{
+    background-color:#a9ecbf;
+    width: 100%;
+    display: flex;
+    border-radius: 50px;
+    padding: 10px;
+    justify-content: space-between;
+}
+
+.profile-container{
+    display: flex;
+    gap: 0.5em;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.profile-description{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.profile-img {
+    border-radius: 50%;
+    width: 70px;
+    height: 70px;
+    overflow: hidden;
+}
+
+.profile-img img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+}
+
+.user-title{
+    color: white;
+    font-weight: bold;
+    font-size: 1.2em;
+}
+
+.username {
+    color: #4c4c55;
+}
+
+.menu-bar{
+    display: flex;
+    align-items: center;
+}
+
+.menu-bar i{
+    font-size: 25px;
+    color: white;
+}
+
+.menu-bar i:hover{
+    cursor: pointer;
+}
             .card_c {
   width: 100%;
   height: 254px;
@@ -206,24 +275,28 @@
             .record-card h5 {
                 font-weight: bold;
                 margin-bottom: 10px;
+                font-size: large;
             }
             .record-card p {
                 margin: 5px 0;
+                font-size: small;
+
             }
             .record-card p span {
                 font-weight: bold;
+                font-size: small;
             }
         </style>
     </head>
     <body>
         <div class="container">
-            <h1>my Health Records</h1>
+            
             {% for record in records %}
                 <div class="record-card">
                     <h5>Record Date: {{ record.record_date }}</h5>
                     <p><span>Description:</span> 
                         {% if record.description|length > 20 %}
-                            {{ record.description|slice:":20" }}...
+                            {{ record.description|slice:":10" }}...
                         {% else %}
                             {{ record.description }}
                         {% endif %}
@@ -233,7 +306,7 @@
                     <p><span>Temperature:</span> {{ record.temperature }}</p>
                     <p><span>Weight:</span> {{ record.weight }}</p>
                     <p><span>Height:</span> {{ record.height }}</p>
-                    <p><span>Notes:</span> {{ record.notes }}</p>
+                  
                     <p><span>Blood Group:</span> {{ record.blood_group }}</p>
                     <p><span>Diseases:</span> {{ record.diseases }}</p>
                     <p><span>Surgery History:</span> {{ record.surgery_history }}</p>
@@ -249,7 +322,7 @@
     </html>
     
     <section class="services" id="services">
-      <h1 class="heading">health <span>sync checkup</span></h1>
+     <center><span style="font-weight: bold; font-size: large">checkup made easy</span></center>
       <div class="box-container">
         <div class="box">
           <i class="fas fa-notes-medical"></i>

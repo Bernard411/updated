@@ -595,7 +595,47 @@ Add a counter to the multi-steps indicator
             </ol>
         </nav>
     </section>
-
+	<center>
+	<div class="codntainer">
+	
+		<div class="circle-container">
+		  <svg width="100%" height="100%" viewBox="0 0 100 100">
+			<!-- Gradient definition for the active meter -->
+			<defs>
+			  <linearGradient id="activeGradient" gradientTransform="rotate(90)">
+				<stop offset="0%" stop-color="#00ff00" />
+				<stop offset="100%" stop-color="#00aeef" />
+			  </linearGradient>
+			</defs>
+	  
+			<!-- Gradient definition for the rest meter -->
+			<defs>
+			  <linearGradient id="restGradient" gradientTransform="rotate(90)">
+				<stop offset="0%" stop-color="#be1e2d" />
+				<stop offset="100%" stop-color="#f0512a" />
+			  </linearGradient>
+			</defs>
+	  
+			<!-- Active meter -->
+			<circle class="circle-meter active" r="45" cx="50" cy="50" fill="url(#activeGradient)" stroke="none"></circle>
+		  </svg>
+		  <div class="timer-text" id="timerText">00:00</div>
+		</div>
+	
+		<label class="Margin" for="activeTime">Active Time: </label>
+		<input type="text" style="margin-left: 30px; height: 30px;" id="activeTime" placeholder="Enter time in seconds or mm:ss or decimal format">
+		<div class="error-message"  id="activeTimeError"></div>
+		<label class="Margin" for="restTime">Rest Time: </label>
+		<input type="text" style="margin-left: 30px; height: 30px;" id="restTime" placeholder="Enter time in seconds or mm:ss or decimal format">
+		<div class="error-message" id="restTimeError"></div>
+	
+		<div class="button-container">
+		<button id="startBtn">Start</button>
+		<button id="pauseBtn">Pause</button>
+		<button id="stopBtn">Stop</button>
+		</div>
+	  </div>
+	</center>
     <div class="meter-container" style="margin-top: 20px;">
 		
         <div class="meter">
@@ -664,3 +704,339 @@ Add a counter to the multi-steps indicator
     </script>
 </body>
 </html>
+<div class="input">
+	<center><h1 style="color: rgb(0, 0, 0);">allegies</h1></center>
+	<button class="value" style="color: #111;">
+	  <svg id="Line" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+		<path
+		  fill="#7D8590"
+		  id="XMLID_1646_"
+		  d="m17.074 30h-2.148c-1.038 0-1.914-.811-1.994-1.846l-.125-1.635c-.687-.208-1.351-.484-1.985-.824l-1.246 1.067c-.788.677-1.98.631-2.715-.104l-1.52-1.52c-.734-.734-.78-1.927-.104-2.715l1.067-1.246c-.34-.635-.616-1.299-.824-1.985l-1.634-.125c-1.035-.079-1.846-.955-1.846-1.993v-2.148c0-1.038.811-1.914 1.846-1.994l1.635-.125c.208-.687.484-1.351.824-1.985l-1.068-1.247c-.676-.788-.631-1.98.104-2.715l1.52-1.52c.734-.734 1.927-.779 2.715-.104l1.246 1.067c.635-.34 1.299-.616 1.985-.824l.125-1.634c.08-1.034.956-1.845 1.994-1.845h2.148c1.038 0 1.914.811 1.994 1.846l.125 1.635c.687.208 1.351.484 1.985.824l1.246-1.067c.787-.676 1.98-.631 2.715.104l1.52 1.52c.734.734.78 1.927.104 2.715l-1.067 1.246c.34.635.616 1.299.824 1.985l1.634.125c1.035.079 1.846.955 1.846 1.993v2.148c0 1.038-.811 1.914-1.846 1.994l-1.635.125c-.208.687-.484 1.351-.824 1.985l1.067 1.246c.677.788.631 1.98-.104 2.715l-1.52 1.52c-.734.734-1.928.78-2.715.104l-1.246-1.067c-.635.34-1.299.616-1.985.824l-.125 1.634c-.079 1.035-.955 1.846-1.993 1.846zm-5.835-6.373c.848.53 1.768.912 2.734 1.135.426.099.739.462.772.898l.18 2.341 2.149-.001.18-2.34c.033-.437.347-.8.772-.898.967-.223 1.887-.604 2.734-1.135.371-.232.849-.197 1.181.089l1.784 1.529 1.52-1.52-1.529-1.784c-.285-.332-.321-.811-.089-1.181.53-.848.912-1.768 1.135-2.734.099-.426.462-.739.898-.772l2.341-.18h-.001v-2.148l-2.34-.18c-.437-.033-.8-.347-.898-.772-.223-.967-.604-1.887-1.135-2.734-.232-.37-.196-.849.089-1.181l1.529-1.784-1.52-1.52-1.784 1.529c-.332.286-.81.321-1.181.089-.848-.53-1.768-.912-2.734-1.135-.426-.099-.739-.462-.772-.898l-.18-2.341-2.148.001-.18 2.34c-.033.437-.347.8-.772.898-.967.223-1.887.604-2.734 1.135-.37.232-.849.197-1.181-.089l-1.785-1.529-1.52 1.52 1.529 1.784c.285.332.321.811.089 1.181-.53.848-.912 1.768-1.135 2.734-.099.426-.462.739-.898.772l-2.341.18.002 2.148 2.34.18c.437.033.8.347.898.772.223.967.604 1.887 1.135 2.734.232.37.196.849-.089 1.181l-1.529 1.784 1.52 1.52 1.784-1.529c.332-.287.813-.32 1.18-.089z"
+		></path>
+		<path
+		  id="XMLID_1645_"
+		  fill="#7D8590"
+		  d="m16 23c-3.859 0-7-3.141-7-7s3.141-7 7-7 7 3.141 7 7-3.141 7-7 7zm0-12c-2.757 0-5 2.243-5 5s2.243 5 5 5 5-2.243 5-5-2.243-5-5-5z"
+		></path>
+	  </svg>
+	  Account
+	</button>
+	
+  </div>
+<style>
+	button {
+ padding: 0.8em 1.8em;
+ border: 2px solid #17C3B2;
+ position: relative;
+ overflow: hidden;
+ background-color: transparent;
+ text-align: center;
+ text-transform: uppercase;
+ font-size: 16px;
+ transition: .3s;
+ z-index: 1;
+ font-family: inherit;
+ color: #17C3B2;
+ margin-top: 10px;
+}
+
+button::before {
+ content: '';
+ width: 0;
+ height: 300%;
+ position: absolute;
+ top: 50%;
+ left: 50%;
+ transform: translate(-50%, -50%) rotate(45deg);
+ background: #17C3B2;
+ transition: .5s ease;
+ display: block;
+ z-index: -1;
+}
+
+button:hover::before {
+ width: 105%;
+}
+
+button:hover {
+ color: #111;
+}
+
+	.input {
+  display: flex;
+  flex-direction: column;
+
+  background-color: #ffffff;
+  justify-content: center;
+  border-radius: 5px;
+  margin-top: 10px;
+  color: black;
+
+}
+
+.value {
+  background-color: transparent;
+  border: none;
+  padding: 10px;
+  color: white;
+  display: flex;
+  position: relative;
+  gap: 5px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.value:not(:active):hover,
+.value:focus {
+  background-color: #21262c;
+}
+
+.value:focus,
+.value:active {
+  background-color: #1a1f24;
+  outline: none;
+}
+
+.value::before {
+  content: "";
+  position: absolute;
+  top: 5px;
+  left: -10px;
+  width: 5px;
+  height: 80%;
+  background-color: #2f81f7;
+  border-radius: 5px;
+  opacity: 0;
+}
+
+.value:focus::before,
+.value:active::before {
+  opacity: 1;
+}
+
+.value svg {
+  width: 15px;
+}
+
+</style>  
+
+  <style>
+
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+
+  justify-content: center;
+  width: 250px;
+  height: auto;
+  margin: 0;
+  padding: 25px;
+}
+label {
+  margin: 1em auto;
+}
+
+
+.circle-container {
+  position: relative;
+  width: 200px;
+  height: 200px;
+}
+
+.circle-meter {
+  stroke-width: 10;
+  stroke: #5cb85c;
+  fill: none;
+  stroke-linecap: round;
+  transform: rotate(-90deg);
+  transform-origin: 50% 50%;
+}
+
+.rest {
+  stroke: #d9534f;
+}
+
+.timer-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 16px;
+  font-weight: bold;
+}
+
+
+
+
+.invalid-input {
+  border: 2px solid red;
+}
+
+.error-message {
+  color: red;
+  font-size: 12px;
+  margin-top: 5px;
+  text-align: left; /* Set text alignment to left */
+  width: 100%; /* Set a fixed width to reserve space for the error message */
+}
+
+.circle-meter {
+  stroke-width: 10; /* Change the stroke width as needed */
+}
+
+.active {
+  stroke: url(#activeGradient);
+}
+
+.rest {
+  stroke: url(#restGradient);
+}
+.Margin {
+  margin-top: 1em;
+}
+  </style>
+
+  <script>
+let countdownInterval;
+    let totalMilliseconds = 0;
+    let isRestTime = false;
+    let remainingMilliseconds = 0;
+    let isActiveTimerStarted = false;
+    let isTimerPaused = false;
+    const circleMeter = document.querySelector(".circle-meter");
+    const timerTextElement = document.getElementById("timerText");
+    const startBtn = document.getElementById("startBtn");
+    const pauseBtn = document.getElementById("pauseBtn");
+    const stopBtn = document.getElementById("stopBtn");
+    const activeTimeInput = document.getElementById("activeTime");
+    const restTimeInput = document.getElementById("restTime");
+    let restAnimationDuration = 0;
+    const initialStrokeLength = 282.74; // Full circumference of the circle
+    let isCountdownRunning = false;
+
+    function calculateTotalMilliseconds(timeString) {
+      if (timeString.includes(":")) {
+        const [minutes, seconds] = timeString.split(":").map((part) => parseFloat(part));
+        return (isNaN(minutes) ? 0 : Math.floor(minutes) * 60 * 1000) + (isNaN(seconds) ? 0 : Math.floor(seconds) * 1000);
+      } else {
+        const parsedValue = parseFloat(timeString);
+        return isNaN(parsedValue) ? 0 : (parsedValue.toString().includes('.') ? Math.round(parsedValue * 60 * 1000) : Math.round(parsedValue * 1000));
+      }
+    }
+
+    function validateInput(inputElement, errorMessageElement) {
+      const inputValue = inputElement.value.trim();
+      if (inputValue === "" || calculateTotalMilliseconds(inputValue) === 0) {
+        inputElement.classList.add("invalid-input");
+        errorMessageElement.textContent = "Please enter a valid time.";
+        return false;
+      } else {
+        inputElement.classList.remove("invalid-input");
+        errorMessageElement.textContent = "";
+        return true;
+      }
+    }
+
+    function startCountdown() {
+      const isValidActiveTime = validateInput(activeTimeInput, document.getElementById("activeTimeError"));
+      const isValidRestTime = validateInput(restTimeInput, document.getElementById("restTimeError"));
+
+      if (!isCountdownRunning && isValidActiveTime && isValidRestTime) {
+        isCountdownRunning = true;
+        const activeTimeMilliseconds = calculateTotalMilliseconds(activeTimeInput.value);
+        const restTimeMilliseconds = calculateTotalMilliseconds(restTimeInput.value);
+
+        totalMilliseconds = activeTimeMilliseconds;
+        remainingMilliseconds = activeTimeMilliseconds;
+        restAnimationDuration = restTimeMilliseconds;
+
+        let countdownTime = 3;
+        timerTextElement.textContent = countdownTime.toString().padStart(2, '0');
+
+        let initialCountdownInterval = setInterval(() => {
+          countdownTime--;
+          timerTextElement.textContent = countdownTime.toString().padStart(2, '0');
+          if (countdownTime === 0) {
+            clearInterval(initialCountdownInterval);
+            timerTextElement.textContent = formatTime(remainingMilliseconds);
+            circleMeter.classList.remove("rest");
+            circleMeter.classList.add("active");
+            countdownInterval = setInterval(updateCountdown, 1000);
+          }
+        }, 1000);
+      }
+    }
+
+    function pauseResumeCountdown() {
+      if (isCountdownRunning) {
+        if (!isTimerPaused) {
+          clearInterval(countdownInterval);
+          isTimerPaused = true;
+          pauseBtn.textContent = "Resume";
+        } else {
+          isTimerPaused = false;
+          pauseBtn.textContent = "Pause";
+          countdownInterval = setInterval(updateCountdown, 1000); // Resume the countdown
+        }
+      }
+    }
+
+    function stopCountdown() {
+      clearInterval(countdownInterval);
+      isCountdownRunning = false;
+      remainingMilliseconds = 0;
+      circleMeter.style.strokeDasharray = `${initialStrokeLength} ${initialStrokeLength}`;
+      timerTextElement.textContent = "00:00";
+      activeTimeInput.value = "";
+      restTimeInput.value = "";
+      circleMeter.classList.remove("active", "rest");
+      circleMeter.classList.add("active"); // Set the initial state to active
+      isTimerPaused = false;
+      pauseBtn.textContent = "Pause";
+    }
+
+    function updateCountdown() {
+      if (remainingMilliseconds > 0 && !isTimerPaused) {
+        if (isRestTime) {
+          timerTextElement.textContent = `${formatTime(remainingMilliseconds)} Rest`;
+        } else {
+          timerTextElement.textContent = formatTime(remainingMilliseconds);
+        }
+        remainingMilliseconds -= 1000;
+
+        const meterProgress = 1 - remainingMilliseconds / totalMilliseconds;
+        circleMeter.style.strokeDasharray = `${meterProgress * initialStrokeLength} ${initialStrokeLength}`;
+      } else if (!isTimerPaused) {
+        isRestTime = !isRestTime;
+        if (isRestTime) {
+          remainingMilliseconds = restAnimationDuration;
+          circleMeter.classList.remove("active");
+          circleMeter.classList.add("rest");
+        } else {
+          remainingMilliseconds = totalMilliseconds;
+          circleMeter.classList.remove("rest");
+          circleMeter.classList.add("active");
+        }
+      }
+    }
+
+    function formatTime(totalMilliseconds) {
+      const totalSeconds = Math.floor(totalMilliseconds / 1000);
+      const minutes = Math.floor(totalSeconds / 60);
+      const seconds = totalSeconds % 60;
+      return minutes.toString().padStart(2, '0') + ":" + seconds.toString().padStart(2, '0');
+    }
+
+    function handleStartResumeClick() {
+      if (!isCountdownRunning) {
+        startCountdown();
+      } else {
+        pauseResumeCountdown();
+      }
+    }
+
+    startBtn.addEventListener("click", handleStartResumeClick);
+    pauseBtn.addEventListener("click", pauseResumeCountdown);
+    stopBtn.addEventListener("click", stopCountdown);
+  </script>

@@ -884,7 +884,7 @@ Add a counter to the multi-steps indicator
     <input value="value-1" name="value-radio" id="value-1" type="radio" />
     
     <label for="value-1">
-      <a href="{% url 'ai_doctor' %}">
+      <a href="{% url 'medicine' %}">
       <div class="text" style="color: black;">
         <span class="circle"></span>
         Health Tracker
@@ -910,10 +910,12 @@ Add a counter to the multi-steps indicator
 
     <input value="value-3" name="value-radio" id="value-3" type="radio" />
     <label for="value-3">
-      <div class="text">
+      <a href="{% url 'ai_doctor' %}">
+      <div class="text" style="color: black; font-weight: bold;">
         <span class="circle"></span>
        Inteligence Diagnostic
       </div>
+      </a>
       <div class="price">
         <span>try</span>
         <span class="small">entity</span>

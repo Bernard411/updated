@@ -24,8 +24,8 @@
       <nav class="navbar">
         {% if user.id %}
         <a href="{% url 'home' %}">Home</a>
-        <a href="#services">health records</a>
-        <a href="{% url 'exercise_tracker_view' %}">checkup</a>
+        <a href="{% url 'add_health_record' %}">health records</a>
+        
       
         <a href="{% url 'logout' %}">logout</a>
       

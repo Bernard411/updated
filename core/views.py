@@ -155,7 +155,12 @@ def health_records(request):
     return render(request, 'geo.html')
 
 def medicine(request):
-    return render(request, 'medicine.html')
+    records = HealthRecord.objects.filter(patient=request.user)
+    context = {
+        'records': records,
+       
+    }
+    return render(request, 'medicine.html', context)
 
 from django.shortcuts import render, redirect
 

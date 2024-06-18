@@ -636,26 +636,150 @@ Add a counter to the multi-steps indicator
 		</div>
 	  </div>
 	</center>
-
-<div class="input">
-	<center><h1 style="color: rgb(0, 0, 0);">allegies</h1></center>
-	<button class="value" style="color: #111;">
-	  <svg id="Line" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
-		<path
-		  fill="#7D8590"
-		  id="XMLID_1646_"
-		  d="m17.074 30h-2.148c-1.038 0-1.914-.811-1.994-1.846l-.125-1.635c-.687-.208-1.351-.484-1.985-.824l-1.246 1.067c-.788.677-1.98.631-2.715-.104l-1.52-1.52c-.734-.734-.78-1.927-.104-2.715l1.067-1.246c-.34-.635-.616-1.299-.824-1.985l-1.634-.125c-1.035-.079-1.846-.955-1.846-1.993v-2.148c0-1.038.811-1.914 1.846-1.994l1.635-.125c.208-.687.484-1.351.824-1.985l-1.068-1.247c-.676-.788-.631-1.98.104-2.715l1.52-1.52c.734-.734 1.927-.779 2.715-.104l1.246 1.067c.635-.34 1.299-.616 1.985-.824l.125-1.634c.08-1.034.956-1.845 1.994-1.845h2.148c1.038 0 1.914.811 1.994 1.846l.125 1.635c.687.208 1.351.484 1.985.824l1.246-1.067c.787-.676 1.98-.631 2.715.104l1.52 1.52c.734.734.78 1.927.104 2.715l-1.067 1.246c.34.635.616 1.299.824 1.985l1.634.125c1.035.079 1.846.955 1.846 1.993v2.148c0 1.038-.811 1.914-1.846 1.994l-1.635.125c-.208.687-.484 1.351-.824 1.985l1.067 1.246c.677.788.631 1.98-.104 2.715l-1.52 1.52c-.734.734-1.928.78-2.715.104l-1.246-1.067c-.635.34-1.299.616-1.985.824l-.125 1.634c-.079 1.035-.955 1.846-1.993 1.846zm-5.835-6.373c.848.53 1.768.912 2.734 1.135.426.099.739.462.772.898l.18 2.341 2.149-.001.18-2.34c.033-.437.347-.8.772-.898.967-.223 1.887-.604 2.734-1.135.371-.232.849-.197 1.181.089l1.784 1.529 1.52-1.52-1.529-1.784c-.285-.332-.321-.811-.089-1.181.53-.848.912-1.768 1.135-2.734.099-.426.462-.739.898-.772l2.341-.18h-.001v-2.148l-2.34-.18c-.437-.033-.8-.347-.898-.772-.223-.967-.604-1.887-1.135-2.734-.232-.37-.196-.849.089-1.181l1.529-1.784-1.52-1.52-1.784 1.529c-.332.286-.81.321-1.181.089-.848-.53-1.768-.912-2.734-1.135-.426-.099-.739-.462-.772-.898l-.18-2.341-2.148.001-.18 2.34c-.033.437-.347.8-.772.898-.967.223-1.887.604-2.734 1.135-.37.232-.849.197-1.181-.089l-1.785-1.529-1.52 1.52 1.529 1.784c.285.332.321.811.089 1.181-.53.848-.912 1.768-1.135 2.734-.099.426-.462.739-.898.772l-2.341.18.002 2.148 2.34.18c.437.033.8.347.898.772.223.967.604 1.887 1.135 2.734.232.37.196.849-.089 1.181l-1.529 1.784 1.52 1.52 1.784-1.529c.332-.287.813-.32 1.18-.089z"
-		></path>
-		<path
-		  id="XMLID_1645_"
-		  fill="#7D8590"
-		  d="m16 23c-3.859 0-7-3.141-7-7s3.141-7 7-7 7 3.141 7 7-3.141 7-7 7zm0-12c-2.757 0-5 2.243-5 5s2.243 5 5 5 5-2.243 5-5-2.243-5-5-5z"
-		></path>
-	  </svg>
-	  Account
-	</button>
+	<!DOCTYPE html>
+	<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Health Records</title>
+		<style>
 	
-  </div>
+			.table-container {
+				width: 90%;
+				max-width: 1200px;
+				margin: 20px;
+				overflow-x: auto;
+				box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+				background-color: #ffffff;
+				border-radius: 10px;
+			}
+	
+			table {
+				width: 100%;
+				border-collapse: collapse;
+				font-size: 16px;
+				text-align: left;
+			}
+	
+			table thead tr {
+				background-color: #009879;
+				color: #ffffff;
+				text-align: left;
+				font-weight: bold;
+			}
+	
+			table th,
+			table td {
+				padding: 12px 15px;
+			}
+	
+			table tbody tr {
+				border-bottom: 1px solid #dddddd;
+			}
+	
+			table tbody tr:nth-of-type(even) {
+				background-color: #f3f3f3;
+			}
+	
+			table tbody tr:last-of-type {
+				border-bottom: 2px solid #009879;
+			}
+	
+			.btn {
+				background-color: #009879;
+				color: #ffffff;
+				padding: 5px 10px;
+				text-decoration: none;
+				border-radius: 5px;
+				display: inline-block;
+			}
+	
+			.btn:hover {
+				background-color: #007f6e;
+			}
+	
+			@media (max-width: 768px) {
+				table thead {
+					display: none;
+				}
+	
+				table, table tbody, table tr, table td {
+					display: block;
+					width: 100%;
+				}
+	
+				table tr {
+					margin-bottom: 15px;
+				}
+	
+				table td {
+					text-align: right;
+					padding-left: 50%;
+					position: relative;
+				}
+	
+				table td::before {
+					content: attr(data-label);
+					position: absolute;
+					left: 0;
+					width: 50%;
+					padding-left: 15px;
+					font-weight: bold;
+					text-align: left;
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<div class="table-container">
+			<table>
+				<thead>
+					<tr>
+						<th>Record Date</th>
+						<th>Description</th>
+						<th>Blood Pressure</th>
+						<th>Heart Rate</th>
+						<th>Temperature</th>
+						<th>Weight</th>
+						<th>Height</th>
+						<th>Blood Group</th>
+						<th>Diseases</th>
+						<th>Surgery History</th>
+						<th>Actions</th>
+					</tr>
+				</thead>
+				<tbody>
+					{% for record in records %}
+						<tr>
+							<td data-label="Record Date">{{ record.record_date }}</td>
+							<td data-label="Description">
+								{% if record.description|length > 20 %}
+									{{ record.description|slice:":10" }}...
+								{% else %}
+									{{ record.description }}
+								{% endif %}
+							</td>
+							<td data-label="Blood Pressure">{{ record.blood_pressure }}</td>
+							<td data-label="Heart Rate">{{ record.heart_rate }}</td>
+							<td data-label="Temperature">{{ record.temperature }}</td>
+							<td data-label="Weight">{{ record.weight }}</td>
+							<td data-label="Height">{{ record.height }}</td>
+							<td data-label="Blood Group">{{ record.blood_group }}</td>
+							<td data-label="Diseases">{{ record.diseases }}</td>
+							<td data-label="Surgery History">{{ record.surgery_history }}</td>
+							<td data-label="Actions">
+								<a href="{% url 'delete_health_record' record.id %}" class="btn">
+									delete <span class="fas fa-chevron-right"></span>
+								</a>
+							</td>
+						</tr>
+					{% endfor %}
+				</tbody>
+			</table>
+		</div>
+	</body>
+	</html>
+	
 <style>
 	button {
  padding: 0.8em 1.8em;

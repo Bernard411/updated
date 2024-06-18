@@ -585,20 +585,77 @@ Add a counter to the multi-steps indicator
   </section>
 
 
-<div class="machine" style="margin-left: 20px;">
-    <h1>Health Record Trend Analysis for {{ request.user.username }}</h1>
-    {% if trend_analysis.error %}
-        <p>{{ trend_analysis.error }}</p>
+      <style>
+          .chart-container {
+              width: 100%;
+              max-width: 600px;
+              margin: 0 auto;
+          }
+          .chart-container h2 {
+              text-align: center;
+          }
+      </style>
+
+  <body>
+    <div class="machine" style="margin-left: 20px;">
+    <!-- vision.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vision</title>
+</head>
+<body>
+    <h1>Health Vision</h1>
+
+    <h2>Trend Analysis</h2>
+    <p>Heart Rate Trend: {{ trend_analysis.heart_rate_trend }}</p>
+    <p>Blood Pressure Trend: {{ trend_analysis.blood_pressure_trend }}</p>
+    <p>Weight Trend: {{ trend_analysis.weight_trend }}</p>
+    <p>Average Heart Rate: {{ trend_analysis.average_heart_rate }}</p>
+    <p>Average Blood Pressure: {{ trend_analysis.average_blood_pressure }}</p>
+    <p>Average Weight: {{ trend_analysis.average_weight }}</p>
+
+    <h2>Recommendations</h2>
+    <p>Heart Rate: {{ recommendations.heart_rate }}</p>
+    <p>Blood Pressure: {{ recommendations.blood_pressure }}</p>
+    <p>Weight: {{ recommendations.weight }}</p>
+
+    <h2>Anomalies Detected</h2>
+    {% if anomaly_records %}
+        <ul>
+            {% for record, anomaly in anomaly_records %}
+                <li>Anomaly detected in record on {{ record.record_date }}</li>
+            {% endfor %}
+        </ul>
     {% else %}
-        <h3>Heart Rate Trend: {{ trend_analysis.heart_rate_trend }}</h3>
-        <h3>Blood Pressure Trend: {{ trend_analysis.blood_pressure_trend }}</h3>
-        <h3>Weight Trend: {{ trend_analysis.weight_trend }}</h3>
-        <h3>Average Heart Rate: {{ trend_analysis.average_heart_rate }}</h3>
-        <h3>Average Blood Pressure: {{ trend_analysis.average_blood_pressure }}</h3>
-        <h3>Average Weight: {{ trend_analysis.average_weight }}</h3>
-        
-       
+        <p>No anomalies detected.</p>
     {% endif %}
-</div>
+
+    <h2>Health Risk Prediction</h2>
+    {% if predictions %}
+        <p>Predictions:</p>
+        <ul>
+            {% for prediction in predictions %}
+                <li>{{ prediction }}</li>
+            {% endfor %}
+        </ul>
+        <p>Accuracy: {{ accuracy }}</p>
+    {% else %}
+        <p>No health risk predictions available.</p>
+    {% endif %}
+
 </body>
 </html>
+
+
+
+      
+    </div>
+  
+      <script src="https://cdn.jsdelivr.net/npm/chart.css/dist/chart.min.js"></script>
+  </body>
+  </html>
+  

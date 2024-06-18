@@ -636,74 +636,7 @@ Add a counter to the multi-steps indicator
 		</div>
 	  </div>
 	</center>
-    <div class="meter-container" style="margin-top: 20px;">
-		
-        <div class="meter">
-            <div class="circle-container">
-                <div class="circle">
-                    <div class="mask full time-meter">
-                        <div class="fill" id="time-fill"></div>
-                    </div>
-                    <div class="mask half time-meter">
-                        <div class="fill" id="time-fill-half"></div>
-                    </div>
-                    <div class="inside-circle" id="time-meter-value">0%</div>
-                </div>
-            </div>
-            <div class="meter-label">Exercise Time</div>
-        </div>
-        <div class="meter">
-            <div class="circle-container">
-                <div class="circle">
-                    <div class="mask full water-meter">
-                        <div class="fill" id="water-fill"></div>
-                    </div>
-                    <div class="mask half water-meter">
-                        <div class="fill" id="water-fill-half"></div>
-                    </div>
-                    <div class="inside-circle" id="water-meter-value">0%</div>
-                </div>
-            </div>
-            <div class="meter-label">Water Intake</div>
-        </div>
-    </div>
 
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            // Example values - replace with actual recommendation values
-            const exerciseDuration = 30; // in minutes
-            const waterIntake = 2.5; // in liters
-
-            const maxExerciseDuration = 60; // 60 minutes
-            const maxWaterIntake = 4; // 4 liters
-
-            // Update time meter
-            const timePercentage = (exerciseDuration / maxExerciseDuration) * 100;
-            updateCircleMeter('time', timePercentage);
-
-            // Update water meter
-            const waterPercentage = (waterIntake / maxWaterIntake) * 100;
-            updateCircleMeter('water', waterPercentage);
-        });
-
-        function updateCircleMeter(type, percentage) {
-            const fill = document.getElementById(`${type}-fill`);
-            const fillHalf = document.getElementById(`${type}-fill-half`);
-            const value = document.getElementById(`${type}-meter-value`);
-
-            if (percentage > 50) {
-                fill.style.transform = 'rotate(180deg)';
-                fillHalf.style.transform = `rotate(${(percentage - 50) * 3.6}deg)`;
-            } else {
-                fill.style.transform = `rotate(${percentage * 3.6}deg)`;
-                fillHalf.style.transform = 'rotate(0deg)';
-            }
-
-            value.textContent = `${Math.round(percentage)}%`;
-        }
-    </script>
-</body>
-</html>
 <div class="input">
 	<center><h1 style="color: rgb(0, 0, 0);">allegies</h1></center>
 	<button class="value" style="color: #111;">

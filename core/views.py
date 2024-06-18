@@ -151,8 +151,94 @@ from .models import HealthRecord
 def geo_mapping(request):
     return render(request, 'geo.html')
 
+
+def analyze_health_trend(user):
+    # Fetch the last 5 health records of the user
+    health_records = HealthRecord.objects.filter(patient=user).order_by('-record_date')[:5]
+
+    if len(health_records) < 5:
+        return {"error": "Insufficient data for trend analysis."}
+
+    # Initialize lists to store metrics
+    heart_rates = []
+    blood_pressures = []
+    weights = []
+
+    # Extract relevant metrics and ensure they are numeric
+    for record in health_records:
+        try:
+            heart_rates.append(int(record.heart_rate))
+        except (ValueError, TypeError):
+            pass
+
+        try:
+            blood_pressures.append(int(record.blood_pressure))
+        except (ValueError, TypeError):
+            pass
+
+        try:
+            weights.append(float(record.weight))
+        except (ValueError, TypeError):
+            pass
+
+    if not heart_rates or not blood_pressures or not weights:
+        return {"error": "Insufficient numeric data for trend analysis."}
+
+    # Calculate trends
+    heart_rate_trend = "Increasing" if heart_rates[0] > heart_rates[-1] else "Decreasing"
+    blood_pressure_trend = "Increasing" if blood_pressures[0] > blood_pressures[-1] else "Decreasing"
+    weight_trend = "Increasing" if weights[0] > weights[-1] else "Decreasing"
+
+    # Calculate averages
+    avg_heart_rate = sum(heart_rates) / len(heart_rates)
+    avg_blood_pressure = sum(blood_pressures) / len(blood_pressures)
+    avg_weight = sum(weights) / len(weights)
+
+    # Example output
+    trend_analysis = {
+        "heart_rate_trend": heart_rate_trend,
+        "blood_pressure_trend": blood_pressure_trend,
+        "weight_trend": weight_trend,
+        "average_heart_rate": round(avg_heart_rate, 2),
+        "average_blood_pressure": round(avg_blood_pressure, 2),
+        "average_weight": round(avg_weight, 2)
+    }
+
+    return trend_analysis
+
+
+
+
+from django.shortcuts import render
+from django.contrib.auth.decorators import login_required
+from .models import HealthRecord
+
+@login_required
 def vision(request):
-    return render(request, 'vision.html')
+    user = request.user
+    trend_analysis = analyze_health_trend(user)
+    
+    # Get individual metrics over time for charts
+    health_records = HealthRecord.objects.filter(patient=user).order_by('-record_date')[:5]
+    dates = [record.record_date.strftime('%Y-%m-%d') for record in health_records]
+    heart_rates = [record.heart_rate for record in health_records]
+    blood_pressures = [record.blood_pressure for record in health_records]
+    weights = [record.weight for record in health_records]
+
+    context = {
+        'trend_analysis': trend_analysis,
+        'dates': dates,
+        'heart_rates': heart_rates,
+        'blood_pressures': blood_pressures,
+        'weights': weights,
+    }
+    
+    return render(request, 'vision.html', context)
+
+
+
+
+
 
 def health_records(request):
     return render(request, 'geo.html')

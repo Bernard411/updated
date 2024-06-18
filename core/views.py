@@ -151,6 +151,9 @@ from .models import HealthRecord
 def geo_mapping(request):
     return render(request, 'geo.html')
 
+def vision(request):
+    return render(request, 'vision.html')
+
 def health_records(request):
     return render(request, 'geo.html')
 

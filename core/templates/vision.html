@@ -594,11 +594,150 @@ Add a counter to the multi-steps indicator
           .chart-container h2 {
               text-align: center;
           }
+          .item svg {
+  width: 40px;
+  height: 40px;
+  margin-bottom: 7px;
+}
+
+.item--1 {
+  background: #c7c7ff;
+}
+
+.item--2 {
+  background: #ffd8be;
+}
+
+.item--3 {
+  background: #a9ecbf;
+}
+
+.item--4 {
+  background: #f3bbe1;
+}
+
+.quantity {
+  font-size: 25px;
+  font-weight: 600;
+}
+
+.text {
+  font-size: 12px;
+  font-family: inherit;
+  font-weight: 600;
+}
+
+.text--1 {
+  color: rgba(149,149,255,1);
+}
+
+.text--2 {
+  color: rgba(252,161,71,1);
+}
+
+.text--3 {
+  color: rgba(66,193,110,1);
+}
+
+.text--4 {
+  color: rgba(220,91,183,1);
+}
+
+
+.radio-input input {
+  display: none;
+
+}
+
+.radio-input label {
+  --border-color: #a1b0d8;
+  width: 90%;
+  height: 80px;
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  
+  margin: 1rem;
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  align-items: center;
+}
+
+.radio-input input:checked + label {
+  --border-color: #2f64d8;
+  border-color: var(--border-color);
+  border-width: 2px;
+}
+.radio-input label:hover {
+  --border-color: #2f64d8;
+  border-color: var(--border-color);
+}
+
+.radio-input {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+}
+
+.circle {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: rgb(189, 187, 207);
+  margin-right: 0.5rem;
+  position: relative;
+}
+
+.radio-input input:checked + label span.circle::before {
+  content: "";
+  display: inline;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #2f64d8;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+}
+.text {
+  display: flex;
+  align-items: center;
+}
+
+.price {
+  display: flex;
+  flex-direction: column;
+  text-align: right;
+  font-weight: bold;
+}
+
+.small {
+  font-size: 10px;
+  color: rgb(136, 138, 139);
+  font-weight: 100;
+}
+
+.info {
+  position: absolute;
+  display: inline-block;
+  font-size: 11px;
+  background-color: rgb(31, 236, 123);
+  border-radius: 20px;
+  padding: 1px 9px;
+  top: 0;
+  transform: translateY(-50%);
+  right: 5px;
+}
       </style>
 
   <body>
     <div class="machine" style="margin-left: 20px;">
     <!-- vision.html -->
+<!-- vision.html -->
 
 <!DOCTYPE html>
 <html lang="en">
@@ -610,41 +749,45 @@ Add a counter to the multi-steps indicator
 <body>
     <h1>Health Vision</h1>
 
-    <h2>Trend Analysis</h2>
-    <p>Heart Rate Trend: {{ trend_analysis.heart_rate_trend }}</p>
-    <p>Blood Pressure Trend: {{ trend_analysis.blood_pressure_trend }}</p>
-    <p>Weight Trend: {{ trend_analysis.weight_trend }}</p>
-    <p>Average Heart Rate: {{ trend_analysis.average_heart_rate }}</p>
-    <p>Average Blood Pressure: {{ trend_analysis.average_blood_pressure }}</p>
-    <p>Average Weight: {{ trend_analysis.average_weight }}</p>
-
-    <h2>Recommendations</h2>
-    <p>Heart Rate: {{ recommendations.heart_rate }}</p>
-    <p>Blood Pressure: {{ recommendations.blood_pressure }}</p>
-    <p>Weight: {{ recommendations.weight }}</p>
-
-    <h2>Anomalies Detected</h2>
-    {% if anomaly_records %}
-        <ul>
-            {% for record, anomaly in anomaly_records %}
-                <li>Anomaly detected in record on {{ record.record_date }}</li>
-            {% endfor %}
-        </ul>
+    {% if waiting_message %}
+        <p>{{ waiting_message }}</p>
     {% else %}
-        <p>No anomalies detected.</p>
-    {% endif %}
+        <h2>Trend Analysis</h2>
+        <p>Heart Rate Trend: {{ trend_analysis.heart_rate_trend }}</p>
+        <p>Blood Pressure Trend: {{ trend_analysis.blood_pressure_trend }}</p>
+        <p>Weight Trend: {{ trend_analysis.weight_trend }}</p>
+        <p>Average Heart Rate: {{ trend_analysis.average_heart_rate }}</p>
+        <p>Average Blood Pressure: {{ trend_analysis.average_blood_pressure }}</p>
+        <p>Average Weight: {{ trend_analysis.average_weight }}</p>
 
-    <h2>Health Risk Prediction</h2>
-    {% if predictions %}
-        <p>Predictions:</p>
-        <ul>
-            {% for prediction in predictions %}
-                <li>{{ prediction }}</li>
-            {% endfor %}
-        </ul>
-        <p>Accuracy: {{ accuracy }}</p>
-    {% else %}
-        <p>No health risk predictions available.</p>
+        <h2>Recommendations</h2>
+        <p>Heart Rate: {{ recommendations.heart_rate }}</p>
+        <p>Blood Pressure: {{ recommendations.blood_pressure }}</p>
+        <p>Weight: {{ recommendations.weight }}</p>
+
+        <h2>Anomalies Detected</h2>
+        {% if anomaly_records %}
+            <ul>
+                {% for record, anomaly in anomaly_records %}
+                    <li>Anomaly detected in record on {{ record.record_date }}</li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>No anomalies detected.</p>
+        {% endif %}
+
+        <h2>Health Risk Prediction</h2>
+        {% if predictions %}
+            <p>Predictions:</p>
+            <ul>
+                {% for prediction in predictions %}
+                    <li>{{ prediction }}</li>
+                {% endfor %}
+            </ul>
+            <p>Accuracy: {{ accuracy }}</p>
+        {% else %}
+            <p>No health risk predictions available.</p>
+        {% endif %}
     {% endif %}
 
 </body>
@@ -652,10 +795,58 @@ Add a counter to the multi-steps indicator
 
 
 
+<div class="radio-input">
+    
+  <input value="value-1" name="value-radio" id="value-1" type="radio" />
+  
+  <label for="value-1">
+    <a href="{% url 'medicine' %}">
+    <div class="text" style="color: black;">
+      <span class="circle"></span>
+      Health Tracker
+    </div>
+    </a>
+    <div class="price">
+      <span>try</span>
+      <span class="small">entity</span>
+    </div> </label
+  >
+  <input value="value-2" name="value-radio" id="value-2" type="radio" />
+  <label for="value-2">
+    <a href="{% url 'vision' %}">
+      <div class="text" style="color: black; font-weight: bold;">
+      <span class="circle"></span>
+     Inteligence Predictions
+    </div>
+    </a>
+    <div class="price">
+      <span>try</span>
+      <span class="small">entity</span>
+    </div>
+    <span class="info">machine learning</span>
+  </label>
+
+  <input value="value-3" name="value-radio" id="value-3" type="radio" />
+  <label for="value-3">
+    <a href="{% url 'ai_doctor' %}">
+    <div class="text" style="color: black; font-weight: bold;">
+      <span class="circle"></span>
+     Inteligence Diagnostic
+    </div>
+    </a>
+    <div class="price">
+      <span>try</span>
+      <span class="small">entity</span>
+    </div>
+    <span class="info">Natural Language Processing</span>
+  </label>
+</div>
+
       
     </div>
   
       <script src="https://cdn.jsdelivr.net/npm/chart.css/dist/chart.min.js"></script>
   </body>
   </html>
+  <script src="{% static 'js/script.js' %}"></script>
   

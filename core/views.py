@@ -166,10 +166,14 @@ def vision(request):
     user = request.user
     
     # Analyze health trend
+    health_records = HealthRecord.objects.filter(patient=user).order_by('-record_date')[:5]
+    
+    if len(health_records) < 5:
+        return render(request, 'vision.html', {'waiting_message': 'Waiting for more records to train up to 5...'})
+
     trend_analysis = analyze_health_trend(user)
     
     # Get individual metrics over time for charts
-    health_records = HealthRecord.objects.filter(patient=user).order_by('-record_date')[:5]
     dates = [record.record_date.strftime('%Y-%m-%d') for record in health_records]
     heart_rates = [record.heart_rate for record in health_records]
     blood_pressures = [record.blood_pressure for record in health_records]
@@ -209,12 +213,13 @@ def vision(request):
         'blood_pressures': blood_pressures,
         'weights': weights,
         'recommendations': recommendations,
-        'anomaly_records': anomaly_records,  # Updated variable
+        'anomaly_records': anomaly_records,
         'predictions': predictions,
         'accuracy': accuracy,
     }
     
     return render(request, 'vision.html', context)
+
 
 
 

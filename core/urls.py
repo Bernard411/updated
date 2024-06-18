@@ -9,6 +9,8 @@ urlpatterns = [
     path('medicine/', views.medicine, name='medicine'),
     path('', views.login_view, name='login'),
     path('registration', views.register, name='reg'),
+
+    path('exercise-tracker/', views.exercise_tracker_view, name='exercise_tracker_view'),
     path('logout/', views.logout_view, name='logout'),
     path('add-health-record/', views.add_health_record, name='add_health_record'),
     path('delete-health-record/<int:record_id>/', views.delete_health_record, name='delete_health_record'),

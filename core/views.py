@@ -9,7 +9,39 @@ from django.contrib.auth import logout
 from django.shortcuts import redirect
 
 
+def recommend_exercise_and_water(user):
 
+    health_record = HealthRecord.objects.filter(patient=user).latest('record_date')
+
+    recommendations = {
+        'exercise_duration': 30,  # Default recommendation
+        'water_intake': 2.0  # Default recommendation in liters
+    }
+
+    # Adjust recommendations based on health conditions
+    if health_record.diseases == 'Hypertension':
+        recommendations['exercise_duration'] = 20  # Moderate exercise
+        recommendations['water_intake'] = 2.5  # Increased water intake
+
+    if health_record.diseases == 'Diabetes':
+        recommendations['exercise_duration'] = 30  # Regular exercise
+        recommendations['water_intake'] = 3.0  # Increased water intake
+
+    if health_record.diseases == 'None':
+        recommendations['exercise_duration'] = 45  # More intensive exercise
+        recommendations['water_intake'] = 2.0  # Standard water intake
+
+    # Further customizations based on other fields like weight, height, temperature, etc.
+    if health_record.weight and health_record.height:
+        bmi = health_record.weight / ((health_record.height / 100) ** 2)
+        if bmi > 25:  # Overweight
+            recommendations['exercise_duration'] += 15  # Additional exercise time
+
+    return recommendations
+
+    
+from django.shortcuts import render
+from django.contrib.auth.decorators import login_required
 
 
 def logout_view(request):
@@ -63,13 +95,20 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from .forms import HealthRecordForm
 from .models import HealthRecord, Patient
+from django.shortcuts import render, redirect
+from django.contrib.auth.decorators import login_required
+from .models import HealthRecord, ExerciseTracker
+from .forms import HealthRecordForm, ExerciseTrackerForm
 
 def home(request):
+    user = request.user
+    recommendations = recommend_exercise_and_water(user)
     records = HealthRecord.objects.filter(patient=request.user)
     recods_count = HealthRecord.objects.count()
     context = {
         'records': records,
-        'recods_count': recods_count
+        'recods_count': recods_count,
+        'recommendations': recommendations
     }
     return render(request, 'index.html', context)
 
@@ -77,6 +116,17 @@ def ai_doctor(request):
     return render(request, 'doc.html')
 
 
+def exercise_tracker_view(request):
+    if request.method == 'POST':
+        form = ExerciseTrackerForm(request.POST)
+        if form.is_valid():
+            exercise = form.save(commit=False)
+            exercise.user = request.user
+            exercise.save()
+            return redirect('home')
+    else:
+        form = ExerciseTrackerForm()
+    return render(request, 'exercise_tracker_form.html', {'form': form})
 
 
 def add_health_record(request):
@@ -139,5 +189,3 @@ def delete_health_record(request, record_id):
 # views.py
 
 
-
-    

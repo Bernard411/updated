@@ -25,6 +25,16 @@ class HealthRecordForm(forms.ModelForm):
 
 
 
+from django import forms
+from .models import ExerciseTracker
+
+class ExerciseTrackerForm(forms.ModelForm):
+    class Meta:
+        model = ExerciseTracker
+        fields = ['exercise_date', 'exercise_type', 'duration_minutes']
+        widgets = {
+            'exercise_date': forms.DateInput(attrs={'type': 'date'}),
+        }
 
 
 

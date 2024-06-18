@@ -147,3 +147,25 @@ class MLModel(models.Model):
 
     def __str__(self):
         return self.model_name
+
+
+from django.db import models
+from django.contrib.auth.models import User
+
+class ExerciseTracker(models.Model):
+    EXERCISE_TYPE_CHOICES = [
+        ('Cardio', 'Cardio'),
+        ('Strength Training', 'Strength Training'),
+        ('Flexibility', 'Flexibility'),
+        ('Balance', 'Balance'),
+        # Add more types as necessary
+    ]
+
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='exercise_tracker')
+    exercise_date = models.DateField()
+    exercise_type = models.CharField(max_length=20, choices=EXERCISE_TYPE_CHOICES)
+    duration_minutes = models.PositiveIntegerField()  # Duration in minutes
+    calories_burned = models.DecimalField(max_digits=6, decimal_places=2, blank=True, null=True)
+
+    def __str__(self):
+        return f"Exercise on {self.exercise_date} for {self.user}"

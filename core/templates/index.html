@@ -176,6 +176,97 @@
 .text--4 {
   color: rgba(220,91,183,1);
 }
+
+
+.radio-input input {
+  display: none;
+
+}
+
+.radio-input label {
+  --border-color: #a1b0d8;
+  width: 90%;
+  height: 80px;
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  
+  margin: 1rem;
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  align-items: center;
+}
+
+.radio-input input:checked + label {
+  --border-color: #2f64d8;
+  border-color: var(--border-color);
+  border-width: 2px;
+}
+.radio-input label:hover {
+  --border-color: #2f64d8;
+  border-color: var(--border-color);
+}
+
+.radio-input {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+}
+
+.circle {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: rgb(189, 187, 207);
+  margin-right: 0.5rem;
+  position: relative;
+}
+
+.radio-input input:checked + label span.circle::before {
+  content: "";
+  display: inline;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #2f64d8;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+}
+.text {
+  display: flex;
+  align-items: center;
+}
+
+.price {
+  display: flex;
+  flex-direction: column;
+  text-align: right;
+  font-weight: bold;
+}
+
+.small {
+  font-size: 10px;
+  color: rgb(136, 138, 139);
+  font-weight: 100;
+}
+
+.info {
+  position: absolute;
+  display: inline-block;
+  font-size: 11px;
+  background-color: rgb(31, 236, 123);
+  border-radius: 20px;
+  padding: 1px 9px;
+  top: 0;
+  transform: translateY(-50%);
+  right: 5px;
+}
+
       </style>
     </section>
 
@@ -247,130 +338,35 @@
           }
       }
   </script>
-    <!DOCTYPE html>
-    <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Health Records</title>
-        <style>
-            body {
-                font-family: Arial, sans-serif;
-                background-color: #f8f9fa;
-                margin: 0;
-                padding: 20px;
-            }
-            .container {
-              
-                margin: auto;
-               
-            }
-            .record-card {
-                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-                padding: 20px;
-                margin-bottom: 20px;
-                background-color: #fff;
-                border-radius: 8px;
-            }
-            .record-card h5 {
-                font-weight: bold;
-                margin-bottom: 10px;
-                font-size: large;
-            }
-            .record-card p {
-                margin: 5px 0;
-                font-size: small;
 
-            }
-            .record-card p span {
-                font-weight: bold;
-                font-size: small;
-            }
-        </style>
-    </head>
-    <body>
-        <div class="container">
-            
-            {% for record in records %}
-                <div class="record-card">
-                    <h5>Record Date: {{ record.record_date }}</h5>
-                    <p><span>Description:</span> 
-                        {% if record.description|length > 20 %}
-                            {{ record.description|slice:":10" }}...
-                        {% else %}
-                            {{ record.description }}
-                        {% endif %}
-                    </p>
-                    <p><span>Blood Pressure:</span> {{ record.blood_pressure }}</p>
-                    <p><span>Heart Rate:</span> {{ record.heart_rate }}</p>
-                    <p><span>Temperature:</span> {{ record.temperature }}</p>
-                    <p><span>Weight:</span> {{ record.weight }}</p>
-                    <p><span>Height:</span> {{ record.height }}</p>
-                  
-                    <p><span>Blood Group:</span> {{ record.blood_group }}</p>
-                    <p><span>Diseases:</span> {{ record.diseases }}</p>
-                    <p><span>Surgery History:</span> {{ record.surgery_history }}</p>
 
-                    <a href="{% url 'delete_health_record' record.id %}" class="btn">
-                      delete <span class="fas fa-chevron-right"></span>
-                    </a>
-                </div>
-                
-            {% endfor %}
-        </div>
-    </body>
-    </html>
+
     
-    <section class="services" id="services">
-     <center><span style="font-weight: bold; font-size: large">checkup made easy</span></center>
-      <div class="box-container">
-        <div class="box">
-          <i class="fas fa-notes-medical"></i>
-          <h3>health records</h3>
-          <p>
-            Access and manage your health records easily. 
-          </p>
-          <a href="{% url 'add_health_record' %}" class="btn">
-            add records <span class="fas fa-chevron-right"></span>
-          </a>
-        </div>
-    
-        <div class="box">
-          <i class="fas fa-ambulance"></i>
-          <h3>Health Geo</h3>
-          <p>
-            Locate health services nearby quickly. 
-          </p>
-          <a href="{% url 'geo_mapping' %}" class="btn">
-            locate facility <span class="fas fa-chevron-right"></span>
-          </a>
-        </div>
-    
-        <div class="box">
-          <i class="fas fa-user-md"></i>
-          <h3>Expert AI doctors</h3>
-          <p>
-            Consult with AI-powered expert doctors. 
-          </p>
-          <a href="{% url 'ai_doctor' %}" class="btn">
-            get diognised <span class="fas fa-chevron-right"></span>
-          </a>
-        </div>
-    
-        <div class="box">
-          <i class="fas fa-pills"></i>
-          <h3>health tracker</h3>
-          <p>
-            Get recommendations for your medicines. 
-          </p>
-          <a href="{% url 'medicine' %}" class="btn">
-            track your health <span class="fas fa-chevron-right"></span>
-          </a>
-        </div>
+
+  <div class="radio-input">
+    <input value="value-1" name="value-radio" id="value-1" type="radio" />
+    <label for="value-1">
+      <div class="text">
+        <span class="circle"></span>
+        Monthly
       </div>
-    </section>
-    
-
+      <div class="price">
+        <span>$30/mo</span>
+        <span class="small">$30 billed every month</span>
+      </div> </label
+    ><input value="value-2" name="value-radio" id="value-2" type="radio" />
+    <label for="value-2">
+      <div class="text">
+        <span class="circle"></span>
+        Annualy
+      </div>
+      <div class="price">
+        <span>$15/mo</span>
+        <span class="small">$180 billed once a year</span>
+      </div>
+      <span class="info">save up to 50%</span>
+    </label>
+  </div>
   
    
 {% include 'float.html' %}

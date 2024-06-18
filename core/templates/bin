@@ -1,0 +1,122 @@
+  <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Health Records</title>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                background-color: #f8f9fa;
+                margin: 0;
+                padding: 20px;
+            }
+            .container {
+              
+                margin: auto;
+               
+            }
+            .record-card {
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+                padding: 20px;
+                margin-bottom: 20px;
+                background-color: #fff;
+                border-radius: 8px;
+            }
+            .record-card h5 {
+                font-weight: bold;
+                margin-bottom: 10px;
+                font-size: large;
+            }
+            .record-card p {
+                margin: 5px 0;
+                font-size: small;
+
+            }
+            .record-card p span {
+                font-weight: bold;
+                font-size: small;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            
+            {% for record in records %}
+                <div class="record-card">
+                    <h5>Record Date: {{ record.record_date }}</h5>
+                    <p><span>Description:</span> 
+                        {% if record.description|length > 20 %}
+                            {{ record.description|slice:":10" }}...
+                        {% else %}
+                            {{ record.description }}
+                        {% endif %}
+                    </p>
+                    <p><span>Blood Pressure:</span> {{ record.blood_pressure }}</p>
+                    <p><span>Heart Rate:</span> {{ record.heart_rate }}</p>
+                    <p><span>Temperature:</span> {{ record.temperature }}</p>
+                    <p><span>Weight:</span> {{ record.weight }}</p>
+                    <p><span>Height:</span> {{ record.height }}</p>
+                  
+                    <p><span>Blood Group:</span> {{ record.blood_group }}</p>
+                    <p><span>Diseases:</span> {{ record.diseases }}</p>
+                    <p><span>Surgery History:</span> {{ record.surgery_history }}</p>
+
+                    <a href="{% url 'delete_health_record' record.id %}" class="btn">
+                      delete <span class="fas fa-chevron-right"></span>
+                    </a>
+                </div>
+                
+            {% endfor %}
+        </div>
+    </body>
+    </html>
+    
+    <section class="services" id="services">
+     <center><span style="font-weight: bold; font-size: large">checkup made easy</span></center>
+      <div class="box-container">
+        <div class="box">
+          <i class="fas fa-notes-medical"></i>
+          <h3>health records</h3>
+          <p>
+            Access and manage your health records easily. 
+          </p>
+          <a href="{% url 'add_health_record' %}" class="btn">
+            add records <span class="fas fa-chevron-right"></span>
+          </a>
+        </div>
+    
+        <div class="box">
+          <i class="fas fa-ambulance"></i>
+          <h3>Health Geo</h3>
+          <p>
+            Locate health services nearby quickly. 
+          </p>
+          <a href="{% url 'geo_mapping' %}" class="btn">
+            locate facility <span class="fas fa-chevron-right"></span>
+          </a>
+        </div>
+    
+        <div class="box">
+          <i class="fas fa-user-md"></i>
+          <h3>Expert AI doctors</h3>
+          <p>
+            Consult with AI-powered expert doctors. 
+          </p>
+          <a href="{% url 'ai_doctor' %}" class="btn">
+            get diognised <span class="fas fa-chevron-right"></span>
+          </a>
+        </div>
+    
+        <div class="box">
+          <i class="fas fa-pills"></i>
+          <h3>health tracker</h3>
+          <p>
+            Get recommendations for your medicines. 
+          </p>
+          <a href="{% url 'medicine' %}" class="btn">
+            track your health <span class="fas fa-chevron-right"></span>
+          </a>
+        </div>
+      </div>
+    </section>

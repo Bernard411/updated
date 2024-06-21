@@ -57,7 +57,7 @@ class HealthRecord(models.Model):
         ('Diabetes', 'Diabetes'),
         ('Hypertension', 'Hypertension'),
         ('Cancer', 'Cancer'),
-        # Add more diseases as necessary
+       
     ]
 
     SURGERY_CHOICES = [
@@ -66,7 +66,7 @@ class HealthRecord(models.Model):
         ('Cardiac Surgery', 'Cardiac Surgery'),
         ('Orthopedic Surgery', 'Orthopedic Surgery'),
         ('Neurosurgery', 'Neurosurgery'),
-        # Add more surgeries as necessary
+        
     ]
 
     patient = models.ForeignKey(User, on_delete=models.CASCADE, related_name='health_records')

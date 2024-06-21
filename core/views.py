@@ -1,17 +1,21 @@
-from django.shortcuts import render
-
-from .models import *
-from django.shortcuts import render
-from django.contrib.auth import authenticate, login
+from django.shortcuts import render, redirect, get_object_or_404
+from django.contrib.auth.decorators import login_required
 from django.contrib import messages
-from .forms import RegistrationForm
-from django.contrib.auth import logout
-from django.shortcuts import redirect
+from django.contrib.auth import authenticate, login, logout
+from django.core.exceptions import ObjectDoesNotExist
 
+from .models import HealthRecord, ExerciseTracker
+from .forms import RegistrationForm, HealthRecordForm, ExerciseTrackerForm
+from .utils import analyze_health_trend, detect_anomalies, predict_health_risk
 
 def recommend_exercise_and_water(user):
-
-    health_record = HealthRecord.objects.filter(patient=user).latest('record_date')
+    try:
+        health_record = HealthRecord.objects.filter(patient=user).latest('record_date')
+    except HealthRecord.DoesNotExist:
+        return {
+            'exercise_duration': 30,  # Default recommendation
+            'water_intake': 2.0  # Default recommendation in liters
+        }
 
     recommendations = {
         'exercise_duration': 30,  # Default recommendation
@@ -38,6 +42,112 @@ def recommend_exercise_and_water(user):
             recommendations['exercise_duration'] += 15  # Additional exercise time
 
     return recommendations
+
+@login_required
+def vision(request):
+    user = request.user
+    health_records = HealthRecord.objects.filter(patient=user).order_by('-record_date')[:5]
+
+    if len(health_records) < 5:
+        return render(request, 'vision.html', {'waiting_message': 'Waiting for more records to train up to 5...'})
+
+    trend_analysis = analyze_health_trend(user)
+    
+    dates = [record.record_date.strftime('%Y-%m-%d') for record in health_records]
+    heart_rates = [record.heart_rate for record in health_records]
+    blood_pressures = [record.blood_pressure for record in health_records]
+    weights = [record.weight for record in health_records]
+
+    recommendations = {}
+    if trend_analysis.get('heart_rate_trend') == 'Increasing':
+        recommendations['heart_rate'] = "Your heart rate has been increasing. Consider monitoring your physical activity levels and consult with a healthcare provider."
+    elif trend_analysis.get('heart_rate_trend') == 'Decreasing':
+        recommendations['heart_rate'] = "Your heart rate has been decreasing. This might indicate improved cardiovascular health."
+    
+    if trend_analysis.get('blood_pressure_trend') == 'Increasing':
+        recommendations['blood_pressure'] = "Your blood pressure has been increasing. Ensure you are managing stress and consult with a healthcare provider."
+    elif trend_analysis.get('blood_pressure_trend') == 'Decreasing':
+        recommendations['blood_pressure'] = "Your blood pressure has been decreasing. This might indicate a positive response to medication or lifestyle changes."
+
+    if trend_analysis.get('weight_trend') == 'Increasing':
+        recommendations['weight'] = "Your weight has been increasing. Consider adjusting your diet and exercise routine."
+    elif trend_analysis.get('weight_trend') == 'Decreasing':
+        recommendations['weight'] = "Your weight has been decreasing. Ensure you are maintaining a healthy diet and lifestyle."
+
+    health_records_for_anomaly = HealthRecord.objects.filter(patient=user).order_by('-record_date')[:10]
+    anomalies = detect_anomalies(health_records_for_anomaly)
+    predictions, accuracy = predict_health_risk(health_records_for_anomaly)
+
+    anomaly_records = [(record, anomaly) for record, anomaly in zip(health_records_for_anomaly, anomalies)]
+
+    context = {
+        'trend_analysis': trend_analysis,
+        'dates': dates,
+        'heart_rates': heart_rates,
+        'blood_pressures': blood_pressures,
+        'weights': weights,
+        'recommendations': recommendations,
+        'anomaly_records': anomaly_records,
+        'predictions': predictions,
+        'accuracy': accuracy,
+    }
+
+    return render(request, 'vision.html', context)
+
+def home(request):
+    user = request.user
+    recommendations = recommend_exercise_and_water(user)
+    records = HealthRecord.objects.filter(patient=request.user)
+    recods_count = HealthRecord.objects.count()
+    context = {
+        'records': records,
+        'recods_count': recods_count,
+        'recommendations': recommendations
+    }
+    return render(request, 'index.html', context)
+
+def ai_doctor(request):
+    return render(request, 'doc.html')
+
+def exercise_tracker_view(request):
+    if request.method == 'POST':
+        form = ExerciseTrackerForm(request.POST)
+        if form.is_valid():
+            exercise = form.save(commit=False)
+            exercise.user = request.user
+            exercise.save()
+            return redirect('home')
+    else:
+        form = ExerciseTrackerForm()
+    return render(request, 'exercise_tracker_form.html', {'form': form})
+
+def add_health_record(request):
+    if request.method == 'POST':
+        form = HealthRecordForm(request.POST)
+        if form.is_valid():
+            health_record = form.save(commit=False)
+            health_record.patient = request.user.patient_profile
+            health_record.save()
+            return redirect('health_record_list')
+    else:
+        form = HealthRecordForm()
+    return render(request, 'add_recod.html', {'form': form})
+
+def geo_mapping(request):
+    return render(request, 'geo.html')
+
+def health_records(request):
+    return render(request, 'geo.html')
+
+def medicine(request):
+    records = HealthRecord.objects.filter(patient=request.user)
+    context = {
+        'records': records,
+    }
+    return render(request, 'medicine.html', context)
+
+
+
 
     
 from django.shortcuts import render
